@@ -116,42 +116,8 @@ Please comment for any errors and suggstions.
 
 Here is the R soruce code written for the analysis:
 
-```
-# Load packages
-library(RCurl)
-library(ggplot2)
+<script src="http://gist-it.appspot.com/https://github.com/daigotanaka/essays/blob/master/does-it-make-difference-when-i-tweet.Rmd?slice=9:45&footer=0">
+</script>
 
-# Set significant digits
-options(scipen = 10, digits = 2)
-
-# Load CSV
-url <- getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/tweet-activity-metrics-daigotanaka-2014.csv")
-raw <- read.csv(text=url, head=T)
-
-# Remove exceptionally high impressions
-normal = raw[raw$impressions < 300,]
-
-# Parse time
-parsed_time <- unclass(as.POSIXlt(strptime(as.character(normal$time), "%Y-%m-%d %H:%M %z", tz="UTC")))
-df = data.frame(time_of_day=parsed_time$hour, impressions=normal$impressions)
-
-# Create scattered plot
-twitter_plot = ggplot(data=df, aes(x=time_of_day, y=impressions)) + geom_point()
-
-# Identify highest and lowest hours
-# First remove low activity time (i.e. # of tweets not more than 10)
-count_each_hour = sort(sapply(split(df, df$time_of_day), function(x) length(x$impressions), simplify=T))
-low_activity_time = names(count_each_hour[count_each_hour <= 10])
-df_active_time = df[!df$time_of_day %in% low_activity_time,]
-
-# Calculate the average impressions per hour of the day and identify the hours with least & most impressions
-avg_each_hour = sapply(split(df_active_time, df_active_time$time_of_day), function(x) mean(x$impressions), simplify=T)
-sorted_avg_each_hour = sort(avg_each_hour)
-least_imp = names(sorted_avg_each_hour[1])
-most_imp = names(sorted_avg_each_hour[length(sorted_avg_each_hour)])
-
-# Compare between the two hours
-two_groups = df[df$time_of_day==as.numeric(least_imp) | df$time_of_day==as.numeric(most_imp),]
-two_group_box_plot = ggplot(data=two_groups, aes(factor(time_of_day), impressions)) + geom_boxplot()
-t.test.result = t.test(x=two_groups[two_groups$time_of_day==22,], y=two_groups[two_groups$time_of_day==1,])
-```
+Please comment for any errors and suggstions directly on the source in
+[the repository](https://github.com/daigotanaka/essays/commit/HEAD?diff=unified)
