@@ -1,0 +1,123 @@
+---
+title: "Correlation between tweet time and impressions"
+author: "Daigo Tanaka"
+date: "January 3, 2015"
+output: html_document
+---
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load packages
+library(RCurl)
+library(ggplot2)
+
+# Set significant digits
+options(scipen = 10, digits = 2)
+
+# Load CSV
+url <- getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/tweet-activity-metrics-daigotanaka-2014.csv")
+raw <- read.csv(text=url, head=T)
+
+# Remove exceptionally high impressions
+normal = raw[raw$impressions < 300,]
+
+# Parse time
+parsed_time <- unclass(as.POSIXlt(strptime(as.character(normal$time), "%Y-%m-%d %H:%M %z", tz="UTC")))
+df = data.frame(time_of_day=parsed_time$hour, impressions=normal$impressions)
+
+# Create scattered plot
+twitter_plot = ggplot(data=df, aes(x=time_of_day, y=impressions)) + geom_point()
+
+# Identify highest and lowest hours
+# First remove low activity time (i.e. # of tweets not more than 10)
+count_each_hour = sort(sapply(split(df, df$time_of_day), function(x) length(x$impressions), simplify=T))
+low_activity_time = names(count_each_hour[count_each_hour <= 10])
+df_active_time = df[!df$time_of_day %in% low_activity_time,]
+
+# Calculate the average impressions per hour of the day and identify the hours with least & most impressions
+avg_each_hour = sapply(split(df_active_time, df_active_time$time_of_day), function(x) mean(x$impressions), simplify=T)
+sorted_avg_each_hour = sort(avg_each_hour)
+least_imp = names(sorted_avg_each_hour[1])
+most_imp = names(sorted_avg_each_hour[length(sorted_avg_each_hour)])
+
+# Compare between the two hours
+two_groups = df[df$time_of_day==as.numeric(least_imp) | df$time_of_day==as.numeric(most_imp),]
+two_group_box_plot = ggplot(data=two_groups, aes(factor(time_of_day), impressions)) + geom_boxplot()
+t.test.result = t.test(x=two_groups[two_groups$time_of_day==22,], y=two_groups[two_groups$time_of_day==1,])
+```
+
+## Does it make difference when I tweet? Well, not at all
+
+This year, I will have fun with statistical analysis, and share the results using
+[my R publisher engine](http://www.daigolab.org/a-method-of-rapidly-communicating-quantitative-research/).
+
+I share my super brief thoughts, pictures, and the links to the articles of mine and others on Twitter. I gain some satisfactions when my tweets get a lot of engagements (i.e. getting retweeted, favored, replied, followed, and etc). Ultimately, I think the level of engagements is about the match between what I tweet and what my followers are interested. But it's also true that not all followers will see the tweet at a given time. I'd like to maximize the expolure.
+
+One question I always had in my mind was when is the good time to tweet so that more people see my tweet.
+
+**Well, it turned out it doesn't matter at all (as far as my tweet goes).**
+
+Below is the analysis over my tweets, and the conclusion should not be extended outside this data.
+
+![fun with statistics - twitter](https://farm8.staticflickr.com/7534/16186378852_e5619397e4_b.jpg)
+
+### Tweet analytics data
+
+I downloaded the analytics data of all
+[my tweets](http://twitter.com/daigotanaka)
+of 2014, and do some statistical inference.
+
+One can obtain the raw analytics data of his or her tweets at http://analytics.twitter.com as CSV file. According to the data, I tweeted `r length(raw[,1])` times in 2014. As of January 3, 2015, I have 869 followers. Here is the basic stats of my tweet impressions in 2014:
+
+| Statistics         | Value                       |
+| :----------------- | --------------------------: |
+| Median             | `r median(raw$impressions)` |
+| Mean               | `r mean(raw$impressions)`   |
+| Standard diviation | `r sd(raw$impressions)`     |
+| Highest            | `r max(raw$impressions)`    |
+| Lowest             | `r min(raw$impressions)`    |
+
+I see the data is skewed by some extremely high impressions that occurs rarely. So, I removed `r length(raw[,1]) - length(normal[,1])` tweets with exceptionally high impressions in the following analysis.
+
+### Analysis
+
+Here is the plot of impressions over the time of the day of tweet:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+twitter_plot
+```
+
+I cannot find any obvious trend visually. Here, I also notice that I do not tweet much between `r min(as.numeric(low_activity_time))` and `r max(as.numeric(low_activity_time))` UTC (not more than 10 tweets). So I excluded the time range from the following analysis.
+
+The time of the day with the highest mean impression was `r most_imp` and the lowest was `r least_imp` UTC. A hypothesis test:
+
+- H0: There is no difference in the number of impressions between those two hours
+- H1: There is a difference in the number of impressions between those two hours
+
+Student's t-test shows the 95% confidence interval of `r t.test.result$conf.int[1]` and `r t.test.result$conf.int[2]`, and there is no statistical significance, and I retain the null-hypothesis. Here is the box plot of the impressions between the two groups:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+two_group_box_plot
+```
+
+### Conslusions and deeper questions
+
+I conclude that it does not matter at all to the number of impressions when I tweet. I don't really have to hold my excitement of publishing the new blog post until the prime hour of the impressions.
+
+Next question I would have is "Why it doesn't matter?" There are several hypotheses I could think of:
+
+1. My followers are all over the world and there are always active users at a given time of the day.
+2. People scroll through the timeline enough to cover the tweets from the last 24 hours or more.
+
+Since I do not have enough data to verify those hypotheses, I will leave further analysis in the future occasion.
+
+Please comment for any errors and suggstions.
+
+### Source code
+
+Here is the R soruce code written for the analysis:
+
+<script src="http://gist-it.appspot.com/https://github.com/daigotanaka/essays/blob/master/does-it-make-difference-when-i-tweet.Rmd?slice=9:45&footer=0">
+</script>
+
+Please comment for any errors and suggstions directly on the source in
+[the repository](https://github.com/daigotanaka/essays/pull/1/files?diff=unified)
