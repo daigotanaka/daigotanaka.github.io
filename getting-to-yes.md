@@ -1,4 +1,4 @@
-## Book recommendataion: Getting to Yes. Negotiating Agreement Without Giving In
+## Getting to Yes: Negotiating Agreement Without Giving In, with my personal story of learning
 
 ![Getting to Yes](http://www.williamury.com/nowithconvictionizbedathanyes2plz/wp-content/uploads/books/yes/Getting_to_Yes-cover.jpg)
 
