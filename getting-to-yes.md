@@ -1,5 +1,7 @@
 ## Book recommendataion: Getting to Yes. Negotiating Agreement Without Giving In
 
+![Getting to Yes](http://www.williamury.com/nowithconvictionizbedathanyes2plz/wp-content/uploads/books/yes/Getting_to_Yes-cover.jpg)
+
 *Getting to Yes: Negotiating Agreement Without Giving In*[^getting-to-yes] was
 one of the books I had on my Kindle app for years. I finally took time to
 finish over the year-end break. This book is one of the books I recommend
