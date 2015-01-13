@@ -21,7 +21,7 @@ taking negotiations as positional bargains (I say I would buy a car with $8000
 and she says she would sell at $10,000, and hopefully we agree on somewhere in
 between.)
 
-"Getting To Yes" taught me to focus on understanding each other's interests
+*Getting To Yes* taught me to focus on understanding each other's interests
 instead of positions, and work together to solve the problem of
 satisfying everybody's interests. Here is a clear illustration from the book:
 
