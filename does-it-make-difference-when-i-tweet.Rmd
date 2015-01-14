@@ -1,51 +1,146 @@
 ---
 title: "Correlation between tweet time and impressions"
 author: "Daigo Tanaka"
-date: "January 3, 2015"
+date: "January 14, 2015"
 output: html_document
 ---
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 # Load packages
+library(knitr)
 library(RCurl)
 library(ggplot2)
 
 # Set significant digits
-options(scipen = 10, digits = 2)
+options(scipen = 20, digits = 4)
+
+# Load Tweets with meta data
+url = getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/daigotanaka-tweets-2014.csv")
+tweets = read.csv(text=url, head=T)
 
 # Load CSV
-url <- getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/tweet-activity-metrics-daigotanaka-2014.csv")
-raw <- read.csv(text=url, head=T)
+url = getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/tweet-activity-metrics-daigotanaka-2014.csv")
+metrics = read.csv(text=url, head=T)
+
+
+# Change the column name from Tweet.id to id
+col_names = names(metrics)
+col_names[1] = "id"
+colnames(metrics) = col_names
+
+# Remove outliers and an error entry
+metrics = metrics[is.numeric(metrics$impressions) & metrics$impressions > 0 & metrics$id != 513495667927711744,]
+
+
+merged = merge(x=tweets, y=metrics, by="id", all=F)
 
 # Remove exceptionally high impressions
-normal = raw[raw$impressions < 300,]
+
+percentile = 0.99
+imp_threshold = quantile(metrics$impressions, c(percentile))
+normal = merged[merged$impressions < imp_threshold,]
 
 # Parse time
-parsed_time <- unclass(as.POSIXlt(strptime(as.character(normal$time), "%Y-%m-%d %H:%M %z", tz="UTC")))
-df = data.frame(time_of_day=parsed_time$hour, impressions=normal$impressions)
+parsed_time = unclass(as.POSIXlt(strptime(as.character(normal$time), "%Y-%m-%d %H:%M %z", tz="UTC")))
 
-# Create scattered plot
-twitter_plot = ggplot(data=df, aes(x=time_of_day, y=impressions)) + geom_point()
+# Create a integer value to indicate number of minutes from 5am PST for regression analysis use
+minutes_passed = (24 + parsed_time$hour - 8 - 5) %% 24 * 60 + parsed_time$min
+
+df = data.frame(time_of_day=(24 + parsed_time$hour - 8) %% 24, day_of_week=parsed_time$wday, impressions=normal$impressions, minutes_passed=minutes_passed, lang=normal$lang)
+
+# Subset with lang (no findings)
+ja = df[df$lang=="ja",]
+en = df[df$lang=="en",]
+
+data_used = df
+
+# histogram
+histogram = ggplot(data=data_used, aes(x=impressions)) + geom_histogram()
+
+# Create scattered plot for English tweets per hour of the day
+twitter_plot = ggplot(data=data_used, aes(x=time_of_day, y=impressions)) + geom_point() + geom_smooth()
 
 # Identify highest and lowest hours
+# Regard 10 tweets or less as the low activity hours
+low_threshold = 10
+
 # First remove low activity time (i.e. # of tweets not more than 10)
-count_each_hour = sort(sapply(split(df, df$time_of_day), function(x) length(x$impressions), simplify=T))
-low_activity_time = names(count_each_hour[count_each_hour <= 10])
-df_active_time = df[!df$time_of_day %in% low_activity_time,]
+count_each_hour = sort(sapply(split(data_used, data_used$time_of_day), function(x) length(x$impressions), simplify=T))
+low_activity_time = as.numeric(names(count_each_hour[count_each_hour <= low_threshold]))
+df_active_time = data_used[!data_used$time_of_day %in% low_activity_time,]
 
 # Calculate the average impressions per hour of the day and identify the hours with least & most impressions
 avg_each_hour = sapply(split(df_active_time, df_active_time$time_of_day), function(x) mean(x$impressions), simplify=T)
 sorted_avg_each_hour = sort(avg_each_hour)
-least_imp = names(sorted_avg_each_hour[1])
-most_imp = names(sorted_avg_each_hour[length(sorted_avg_each_hour)])
+least_imp = as.numeric(names(sorted_avg_each_hour[1]))
+most_imp = as.numeric(names(sorted_avg_each_hour[length(sorted_avg_each_hour)]))
 
 # Compare between the two hours
-two_groups = df[df$time_of_day==as.numeric(least_imp) | df$time_of_day==as.numeric(most_imp),]
-two_group_box_plot = ggplot(data=two_groups, aes(factor(time_of_day), impressions)) + geom_boxplot()
-t.test.result = t.test(x=two_groups[two_groups$time_of_day==22,], y=two_groups[two_groups$time_of_day==1,])
+two_groups = data_used[data_used$time_of_day==least_imp | data_used$time_of_day==most_imp,]
+two_group_box_plot = ggplot(data=two_groups, aes(factor(time_of_day), impressions)) + geom_boxplot() + xlab("Time of day")
+t.test.result = t.test(x=two_groups[two_groups$time_of_day==least_imp,]$impressions, y=two_groups[two_groups$time_of_day==most_imp,]$impressions)
+
+# Week of the day analysis (no findings)
+twitter_plot_wday = ggplot(data=data_used, aes(x=day_of_week, y=impressions)) + geom_point() + geom_smooth()
+
+# Calculate the average impressions per hour of the day and identify the hours with least & most impressions
+avg_each_wday = sapply(split(data_used, data_used$day_of_week), function(x) mean(x$impressions), simplify=T)
+sorted_avg_wday = sort(avg_each_wday)
+least_imp_wday = names(sorted_avg_wday[1])
+most_imp_wday = names(sorted_avg_wday[length(sorted_avg_wday)])
+
+# Compare between the two wdays
+two_groups_wday = data_used[data_used$day_of_week==as.numeric(least_imp_wday) | data_used$day_of_week==as.numeric(most_imp_wday),]
+two_group_box_plot_wday = ggplot(data=two_groups_wday, aes(factor(day_of_week), impressions)) + geom_boxplot()
+t.test.result.wday = t.test(x=two_groups_wday[two_groups_wday$day_of_week==least_imp_wday,]$impressions, y=two_groups_wday[two_groups_wday$day_of_week==most_imp_wday,]$impressions)
+
+# Regression model not including low activity time
+# Added coord_fixed to maintain 1:1 aspect ratio to see correlation clearly
+lm.result = summary(lm(impressions ~ minutes_passed, data=df_active_time))
+reg_plot = ggplot(data=df_active_time, aes(x=minutes_passed, y=impressions)) + xlab("Minutes passed 5am") + geom_point() + geom_smooth(method="lm") + coord_fixed(max(df_active_time$minutes_passed) / max(df_active_time$impressions))
+
+fn = local({
+  i = 1
+  function(x=0) {
+    if (x == 0) {
+        i
+    } else {
+        text = paste("Figure ", i, ": ", x, sep = "")
+        i <<- i + 1
+        text
+    }
+  }
+})
+
+tn = local({
+  i = 1
+  function(x=0) {
+    if (x == 0) {
+        i
+    } else {
+        text = paste("Table ", i, ": ", x, sep = "")
+        i <<- i + 1
+        text
+    }
+  }
+})
+
+knit_hooks$set(html.cap = function(before, options, envir) {
+  if(!before) {
+    paste('<p class="caption">',options$html.cap,"</p>",sep="")
+    }
+})
+
+ampm = function(x) {
+    if (x < 12) {
+        paste(x, "am", sep="")
+    } else {
+        paste(x - 12, "pm", sep="")
+    }
+}
 ```
 
-## Does it make difference when I tweet? Well, not at all
+## Does it make difference when I tweet?
 
 This year, I will have fun with statistical analysis, and share the results using
 [my R publisher engine](http://www.daigolab.org/a-method-of-rapidly-communicating-quantitative-research/).
@@ -54,9 +149,12 @@ I share my super brief thoughts, pictures, and the links to the articles of mine
 
 One question I always had in my mind was when is the good time to tweet so that more people see my tweet.
 
-**Well, it turned out it doesn't matter at all (as far as my tweet goes).**
+**As far as my tweets go, it is most effective if I tweet at `r ampm(most_imp)`, Pacific Standard Time. This may be because 68% of my follwers are Japanese.**
 
-Below is the analysis over my tweets, and the conclusion should not be extended outside this data.
+Below is the analysis over my tweets, and the conclusion should not be extended outside the scope of this data that is Daigo's twitter activities in 2014.
+
+Please comment for any errors and suggstions directly on the source in
+[the repository](https://github.com/daigotanaka/essays/pull/2/files?diff=split)
 
 ![fun with statistics - twitter](https://farm8.staticflickr.com/7534/16186378852_e5619397e4_b.jpg)
 
@@ -66,58 +164,62 @@ I downloaded the analytics data of all
 [my tweets](http://twitter.com/daigotanaka)
 of 2014, and do some statistical inference.
 
-One can obtain the raw analytics data of his or her tweets at http://analytics.twitter.com as CSV file. According to the data, I tweeted `r length(raw[,1])` times in 2014. As of January 3, 2015, I have 869 followers. Here is the basic stats of my tweet impressions in 2014:
+One can obtain the raw analytics data of his or her tweets at http://analytics.twitter.com as CSV file. According to the data, I tweeted `r length(tweets[,1])` times in 2014. Twitter did not attach a metrics data on some of the tweets, and the total number of the tweets with valid metric data is `r length(metrics[,1])`. As of January 3, 2015, I had 869 followers.
+
+
+
+The data is skewed by some extremely high impressions that occurs rarely. So, I removed `r length(metrics[,1]) - length(normal[,1])` tweets with exceptionally high impressions (over `r imp_threshold` impressions, `r as.integer(percentile * 100)`th percentile) in the following analysis. Table `r tn()` is the summary of statistics after removing the outliers and Fig. `r fn()` shows the histogram of the impressions.
 
 | Statistics         | Value                       |
 | :----------------- | --------------------------: |
-| Median             | `r median(raw$impressions)` |
-| Mean               | `r mean(raw$impressions)`   |
-| Standard diviation | `r sd(raw$impressions)`     |
-| Highest            | `r max(raw$impressions)`    |
-| Lowest             | `r min(raw$impressions)`    |
+| Median             | `r median(normal$impressions)` |
+| Mean               | `r mean(normal$impressions)`   |
+| Standard diviation | `r sd(normal$impressions)`     |
+| Highest            | `r max(normal$impressions)`    |
+| Lowest             | `r min(normal$impressions)`    |
 
-I see the data is skewed by some extremely high impressions that occurs rarely. So, I removed `r length(raw[,1]) - length(normal[,1])` tweets with exceptionally high impressions in the following analysis.
+```{r, echo=FALSE, warning=FALSE, message=FALSE, html.cap=tn("Summary of statistics of Tweet impressions")}
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, html.cap=fn("Histogram of impressions")}
+print(histogram)
+```
 
 ### Analysis
 
-Here is the plot of impressions over the time of the day of tweet:
+As in Fig. `r fn()`, there is a slight dent around `r ampm(least_imp)` PST. I also notice that I do not tweet much between `r ampm(min(low_activity_time))` and `r ampm(max(low_activity_time))` PST (`r low_threshold` or less tweets). So I excluded the time range from the following analysis.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-twitter_plot
+```{r, echo=FALSE, warning=FALSE, message=FALSE, html.cap=fn("Impressions over time of day")}
+print(twitter_plot)
 ```
 
-I cannot find any obvious trend visually. Here, I also notice that I do not tweet much between `r min(as.numeric(low_activity_time))` and `r max(as.numeric(low_activity_time))` UTC (not more than 10 tweets). So I excluded the time range from the following analysis.
+The time of the day with the highest mean impression was `r ampm(most_imp)` and the lowest was `r ampm(least_imp)` PST. A hypothesis test:
 
-The time of the day with the highest mean impression was `r most_imp` and the lowest was `r least_imp` UTC. A hypothesis test:
+- *H0*: There is no difference in the number of impressions between those two hours
+- *H1*: There is a difference in the number of impressions between those two hours
 
-- H0: There is no difference in the number of impressions between those two hours
-- H1: There is a difference in the number of impressions between those two hours
+Student's t-test shows p-value of `r t.test.result$p.value` and the 95% confidence interval of `r t.test.result$conf.int[1]` and `r t.test.result$conf.int[2]`. I reject the null-hypothesis. Figure `r fn()` is the box plot of the impressions between the two groups.
 
-Student's t-test shows the 95% confidence interval of `r t.test.result$conf.int[1]` and `r t.test.result$conf.int[2]`, and there is no statistical significance, and I retain the null-hypothesis. Here is the box plot of the impressions between the two groups:
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-two_group_box_plot
+```{r, echo=FALSE, warning=FALSE, message=FALSE, html.cap=fn(paste("Box plot of the impressions between ", ampm(least_imp), " and ", ampm(most_imp), " PST. The upper and lower hinges correspond to the first and third quartiles (the 25th and 75th percentiles)"))}
+print(two_group_box_plot)
 ```
 
-### Conslusions and deeper questions
+For the tweets between `r ampm(max(low_activity_time) + 1)` and `r ampm(min(low_activity_time) + 24 - 1)` PST, *m*, the number of minutes passed `r max(low_activity_time) + 1` PST, is calculated. Correlation between *m* and impression is `r cor(df_active_time$minutes_passed, df_active_time$impressions)` (p-value = `r pf(lm.result$fstatistic[1], lm.result$fstatistic[2], lm.result$fstatistic[3], lower.tail = FALSE)`) (Fig. `r fn()`).
 
-I conclude that it does not matter at all to the number of impressions when I tweet. I don't really have to hold my excitement of publishing the new blog post until the prime hour of the impressions.
 
-Next question I would have is "Why it doesn't matter?" There are several hypotheses I could think of:
+```{r, echo=FALSE, warning=FALSE, message=FALSE, html.cap=fn("Plot between the minutes passed 5am and impressions. Blue line indicates the linear model.")}
+print(reg_plot)
+```
 
-1. My followers are all over the world and there are always active users at a given time of the day.
-2. People scroll through the timeline enough to cover the tweets from the last 24 hours or more.
+### Conclusions
 
-Since I do not have enough data to verify those hypotheses, I will leave further analysis in the future occasion.
+While there was not a strong linear trend between time of day and number of impressions, there is a significant difference of impressions between `r ampm(least_imp)` and `r ampm(most_imp)` PST that are the hours with lowest and highest average impressions.
 
-Please comment for any errors and suggstions.
+[A Report from bit.ly](http://blog.bitly.com/post/22663850994/time-is-on-your-side?aff3a3c0) suggested to post early afternoon (1 to 3pm) for a high click count. The difference in my case is that 68% of my flowers are Japanese, and `r ampm(most_imp)` PST is `r ampm(most_imp + 8 + 9 - 24)` in Japanese Standard Time. The high impression around this time may be due to the high activities in Japanese users.
 
-### Source code
+### Notes
 
-Here is the R soruce code written for the analysis:
-
-<script src="http://gist-it.appspot.com/https://github.com/daigotanaka/essays/blob/master/does-it-make-difference-when-i-tweet.Rmd?slice=9:45&footer=0">
-</script>
-
-Please comment for any errors and suggstions directly on the source in
-[the repository](https://github.com/daigotanaka/essays/pull/1/files?diff=unified)
+- In [the first version of this post](https://github.com/daigotanaka/essays/commit/6b6b1ce6f644e95176d2101260b2c2e52e6ab6aa#diff-b267910778b8b882547bb6e9f91769a0), there was a coding error in R script which drew a completely opposite conclusion.
+- You can see [the difference between Versions 1 and 2](https://github.com/daigotanaka/essays/pull/2/files?diff=split).
+- You can also see [the entire change history of this post](https://github.com/daigotanaka/essays/commits/6b6b1ce6f644e95176d2101260b2c2e52e6ab6aa/does-it-make-difference-when-i-tweet.Rmd).
