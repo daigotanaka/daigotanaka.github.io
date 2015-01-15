@@ -1,5 +1,5 @@
 ---
-title: "Correlation between tweet time and impressions"
+title: "Best time to tweet"
 author: "Daigo Tanaka"
 date: "January 14, 2015"
 output: html_document
@@ -140,7 +140,7 @@ ampm = function(x) {
 }
 ```
 
-## Does it make difference when I tweet?
+## Best time to tweet
 
 This year, I will have fun with statistical analysis, and share the results using
 [my R publisher engine](http://www.daigolab.org/a-method-of-rapidly-communicating-quantitative-research/).
