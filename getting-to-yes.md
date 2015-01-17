@@ -76,6 +76,8 @@ processing my green card through marriage. The company indeed favored my
 proposal. Everybody's interest was satisfied, my green card process went
 without any problem, and Yvonne and I are happily married forever since then.
 
+### I will practice more
+
 After reading *Getting to Yes*, the negotiation started to look like a fun
 collaborative exercise rather than hostile talk among disagreeing people. It is
 a process of collecting intelligence and solving problem creatively, rather
