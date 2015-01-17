@@ -2,14 +2,16 @@
 
 ![Getting to Yes](http://www.williamury.com/nowithconvictionizbedathanyes2plz/wp-content/uploads/books/yes/Getting_to_Yes-cover.jpg)
 
-*Getting to Yes: Negotiating Agreement Without Giving In*[^getting-to-yes] was
-one of the books I had on my Kindle app for years. I finally took time to
-finish over the year-end break. This book is one of the books I recommend
+### Getting to Yes: Negotiating Agreement Without Giving In
+
+*Getting to Yes*[^getting-to-yes] was one of the books I had on my Kindle app
+for years. I finally took time to finish over the year-end break. I recommend
 everybody to read.
 
 > "Getting to Yes offers a straightforward, universally applicable method for
 > negotiating personal and professional disputes without getting taken and
 > without getting angry."
+
 *- from the book introduction on William Ury's web site.*
 
 I didn't negotiate very much in my life. For many things from purchasing a car
@@ -46,6 +48,8 @@ this negotiation does not reach to an agreement?"
 Finally, the authors reminded me that building relationship is the first step
 before anything because we are negotiating with individual humans whether it is
 a talk between a husband and wife or a talk of nations.
+
+### How I negotiated to stay in USA when my visa was rejected
 
 While I was reading, I thought of one of a few occasions in my life that I took
 on a seemingly tough negotiation, and resolved in a creative way. After getting
