@@ -1,4 +1,4 @@
-## Getting to Yes: Negotiating Agreement Without Giving In, with my personal story of learning
+## Getting to Yes: How I negotiated to stay in USA
 
 ![Getting to Yes](http://www.williamury.com/nowithconvictionizbedathanyes2plz/wp-content/uploads/books/yes/Getting_to_Yes-cover.jpg)
 
