@@ -11,6 +11,9 @@ library(knitr)
 library(RCurl)
 library(ggplot2)
 
+version = sessionInfo()$R.version$version.string
+platform = sessionInfo()$platform
+
 # Set significant digits
 options(scipen = 20, digits = 4)
 
@@ -220,6 +223,7 @@ While there was not a strong linear trend between time of day and number of impr
 
 ### Notes
 
+- This R markdown document was processed with `r version` on `r platform`.
 - In [the first version of this post](https://github.com/daigotanaka/essays/commit/6b6b1ce6f644e95176d2101260b2c2e52e6ab6aa#diff-b267910778b8b882547bb6e9f91769a0), there was a coding error in R script which drew a completely opposite conclusion.
 - You can see [the difference between Versions 1 and 2](https://github.com/daigotanaka/essays/pull/2/files?diff=split).
 - You can also see [the entire change history of this post](https://github.com/daigotanaka/essays/commits/6b6b1ce6f644e95176d2101260b2c2e52e6ab6aa/does-it-make-difference-when-i-tweet.Rmd).
