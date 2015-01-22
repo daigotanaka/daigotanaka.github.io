@@ -157,7 +157,7 @@ followers will see the tweet at a given time. I'd like to maximize the
 expolure.  
 
 One question I always had in my mind was when is the good time to tweet so that
-more people see my tweet.
+more people see my tweet. What I found throught the analysis is this:
 
 > ### As far as my tweets go, it is most effective if I tweet at `r ampm(most_imp)`, Pacific Standard Time. This may be because 68% of my follwers are Japanese. That is 4pm in Japanese Standard Time.
 
