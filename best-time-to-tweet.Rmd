@@ -204,7 +204,7 @@ high impressions (over `r imp_threshold` impressions,
 print(histogram)
 ```
 
-### Analysis
+### Statistical inference
 
 As in Fig. `r fn()`, there is a slight dent around `r ampm(least_imp)` PST. I
 also notice that I do not tweet much between `r ampm(min(low_activity_time))`
