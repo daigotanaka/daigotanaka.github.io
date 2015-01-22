@@ -182,8 +182,9 @@ some of the tweets, and the total number of the tweets with valid metric data
 is `r length(metrics[,1])`. As of January 3, 2015, I had 869 followers.
 
 The data is skewed by some extremely high impressions (up to 
-`r max(metrics$impressions)`) that occurred a few times. So, I removed 
-`r length(metrics[,1]) - length(normal[,1])` tweets with exceptionally
+`r max(metrics$impressions)` impressions) that occurred a few times because of
+retweets by extremely influential Twitter users. So, I removed
+`r length(metrics[,1]) - length(normal[,1])` "lucky" tweets with exceptionally
 high impressions (over `r imp_threshold` impressions, 
 `r as.integer(percentile * 100)`th percentile) in the following analysis. Table 
 `r tn()` is the summary of statistics after removing the outliers and Fig. 
