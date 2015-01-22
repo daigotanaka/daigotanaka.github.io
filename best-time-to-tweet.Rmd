@@ -154,7 +154,7 @@ of engagements (i.e. getting retweeted, favored, replied, followed, and etc).
 Ultimately, I think the level of engagements is about the match between what I
 tweet and what my followers are interested. But it's also true that not all
 followers will see the tweet at a given time. I'd like to maximize the
-expolure.  
+exposure.
 
 One question I always had in my mind was when is the good time to tweet so that
 more people see my tweet. What I found through my analysis is this:
@@ -162,24 +162,24 @@ more people see my tweet. What I found through my analysis is this:
 > ### As far as my tweets go, it is most effective if I tweet at `r ampm(most_imp)`, Pacific Standard Time. This may be because 68% of my follwers are Japanese. That is 4pm in Japanese Standard Time.
 
 Below is the details of the analysis over my tweets, and the conclusion should
-not be extended outside the scope of this data that is Daigo's twitter activities in 2014.
+not be extended outside the scope of this data that is my twitter activities in
+2014.
 
-Please comment for any errors and suggstions directly on the source in
+Please comment for any errors and suggstions directly on the source code in
 [the repository](https://github.com/daigotanaka/essays/pull/2/files?diff=split)
 
 ![fun with statistics - twitter](https://farm8.staticflickr.com/7534/16186378852_e5619397e4_b.jpg)
 
 ### Tweet analytics data
 
-I downloaded the analytics data of all
-[my tweets](http://twitter.com/daigotanaka)
-of 2014, and do some statistical inference.
-
-One can obtain the raw analytics data of his or her tweets at
-http://analytics.twitter.com as CSV file. According to the data, I tweeted 
-`r length(tweets[,1])` times in 2014. Twitter did not attach a metrics data on
-some of the tweets, and the total number of the tweets with valid metric data
-is `r length(metrics[,1])`. As of January 3, 2015, I had 869 followers.
+The raw analytics data can be obtained from
+http://analytics.twitter.com as CSV file. A copy of the data of
+[my tweets](http://www.twitter.com/DaigoTanaka") is stored for reproducibility
+of this study at the time of the data retrieval (See the source code).
+According to the data, I tweeted  `r length(tweets[,1])` times in 2014.
+Twitter did not attach a metrics data on some of the tweets, and the total
+number of the tweets with valid metric data is `r length(metrics[,1])`. As of
+January 3, 2015, I had 869 followers.
 
 The data is skewed by some extremely high impressions (up to 
 `r max(metrics$impressions)` impressions) that occurred a few times because of
