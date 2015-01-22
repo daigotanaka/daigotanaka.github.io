@@ -174,7 +174,7 @@ Please comment for any errors and suggstions directly on the source code in
 
 The raw analytics data can be obtained from
 http://analytics.twitter.com as CSV file. A copy of the data of
-[my tweets](http://www.twitter.com/DaigoTanaka") is stored for reproducibility
+[my tweets](http://www.twitter.com/DaigoTanaka) is stored for reproducibility
 of this study at the time of the data retrieval (See the source code).
 According to the data, I tweeted  `r length(tweets[,1])` times in 2014.
 Twitter did not attach a metrics data on some of the tweets, and the total
