@@ -152,7 +152,7 @@ I share my super brief thoughts, pictures, and the links to the articles of mine
 
 One question I always had in my mind was when is the good time to tweet so that more people see my tweet.
 
-**As far as my tweets go, it is most effective if I tweet at `r ampm(most_imp)`, Pacific Standard Time. This may be because 68% of my follwers are Japanese.**
+> ### As far as my tweets go, it is most effective if I tweet at `r ampm(most_imp)`, Pacific Standard Time. This may be because 68% of my follwers are Japanese. That is 4pm in Japanese Standard Time.
 
 Below is the analysis over my tweets, and the conclusion should not be extended outside the scope of this data that is Daigo's twitter activities in 2014.
 
