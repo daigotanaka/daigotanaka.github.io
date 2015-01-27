@@ -1,4 +1,3 @@
-<!--markdown-->
 ## Re: I Hate Puzzles: Am I Still A Programmer?
 
 ![I used to design geometric algorithms](https://farm3.staticflickr.com/2780/4459817401_67071f36fc_z.jpg?zz=1)
