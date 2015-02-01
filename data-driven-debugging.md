@@ -1,4 +1,3 @@
-<!--markdown-->
 ## Data Driven Debugging
 
 ![log](https://farm9.staticflickr.com/8640/16221210937_9b318f5a77_c.jpg)
