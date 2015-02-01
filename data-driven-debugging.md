@@ -20,9 +20,9 @@ aid the communication between the customer and the cashier.
 Such a system can be built with two tablets and a web socket server as shown in
 Fig. 1. Because the cashier-side tablet (Tablet B) needs to process some kind
 of transaction, it sends Application Programming Interface (API) calls to the
-API server that reads and writes data to the database. The web socket server
-also uses the same API and database to retrieve information about the mapping
-of device pairs so it can handle many pairs in different stores.
+API server that reads and writes data to the database.[^tablet] The web socket
+server also uses the same API and database to retrieve information about the
+mapping of device pairs so it can handle many pairs in different stores.
 
 ![web socket system](https://farm8.staticflickr.com/7318/16219713070_e3a3544d54_c.jpg)
 Figure 1: Paired tablets communicating via web socket server with potential
@@ -199,3 +199,8 @@ analytical thought process. As the analysis gets more complex, it is also
 crucial to get our analysis peer reviewed. Tools such as R-markdown to
 semi-automatically document as we run the ad-hoc analysis facilitates the
 process.
+
+[^tablet]: In this architecture, the customer side tablet (Tablet A) does not
+initiate any transaction. This allows the entire workflow logic to exist in
+Tablet B for the consistency of the transactions. Tablet A stay as "dumb
+terminal" that only displays what it is told to display.
