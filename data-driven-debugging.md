@@ -39,10 +39,10 @@ talking to each other, what would we suspect?
 - Was Tablet A not recovering the web socket connection after boot?
 - Was Tablet B not recovering the web socket connection?
 - Both tablets are connected to a web socket but is there an application logic
-- failure preventing the correct information from being displayed?
+  failure preventing the correct information from being displayed?
 - Did one of the pair miss the handshake signals from the other?
 - Was the store Wi-fi signal not reliable? (the tablets are connected to the
-- Internet via Wi-fi)
+  Internet via Wi-fi)
 
 In a complex system, the number of failure scenarios (or hypotheses)
 dramatically increases (i.e. the number of nodes plus the number of edges
