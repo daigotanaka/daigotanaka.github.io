@@ -199,7 +199,7 @@ crucial to get our analysis peer reviewed. Tools such as R-markdown to
 semi-automatically document as we run the ad-hoc analysis facilitates the
 process.
 
-Acknowledgements
+### Acknowledgements
 
 Thanks to dzs for
 [correcting grammar](https://github.com/daigotanaka/essays/pull/3/files)
