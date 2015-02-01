@@ -205,7 +205,4 @@ Thanks to dzs for
 [correcting grammar](https://github.com/daigotanaka/essays/pull/3/files)
 and giving suggestions.
 
-[^tablet]: In this architecture, the customer side tablet (Tablet A) does not
-initiate any transaction. This allows the entire workflow logic to exist in
-Tablet B for the consistency of the transactions. Tablet A stay as "dumb
-terminal" that only displays what it is told to display.
+[^tablet]: In this architecture, the customer side tablet (Tablet A) does not initiate any transaction. This allows the entire workflow logic to exist in Tablet B for the consistency of the transactions. Tablet A stay as "dumb terminal" that only displays what it is told to display.
