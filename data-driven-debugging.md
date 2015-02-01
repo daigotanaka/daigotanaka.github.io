@@ -200,6 +200,10 @@ crucial to get our analysis peer reviewed. Tools such as R-markdown to
 semi-automatically document as we run the ad-hoc analysis facilitates the
 process.
 
+**Thanks** to Zach Shubert for
+[correcting grammar](https://github.com/daigotanaka/essays/pull/3/files)
+and giving suggestions.
+
 [^tablet]: In this architecture, the customer side tablet (Tablet A) does not
 initiate any transaction. This allows the entire workflow logic to exist in
 Tablet B for the consistency of the transactions. Tablet A stay as "dumb
