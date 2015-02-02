@@ -9,6 +9,9 @@ engineers do it already. But I think we could practice it more consciously
 because it may work to cut the debugging of complex systems from days to a few
 hours.
 
+Download
+[PDF version](https://github.com/daigotanaka/essays/raw/master/pdf/data-driven-debugging.pdf)
+
 ### Case 1: Web socket communications
 
 Consider a pair of devices at a store like Walgreens. One is facing the cashier
