@@ -1,0 +1,117 @@
+---
+title: "Publishing interactive data documents"
+author: "Daigo Tanaka"
+date: "February 4, 2015"
+output: html_document
+---
+```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE}
+library(RCurl)
+library(rCharts)
+
+# Load caption helper
+code = getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/dc04b9ca4068d6464cbec61ada4e82fcf3318e55/rmd_caption_helper.R")
+eval(parse(text=code))
+
+# Load rChart helper
+code = getURL("https://gist.githubusercontent.com/daigotanaka/63911907d6ceebe54a74/raw/c01a28bcfff2a766338d6f41c906ec62505eecef/rchart-helper.R")
+eval(parse(text=code))
+
+version = sessionInfo()$R.version$version.string
+platform = sessionInfo()$platform
+
+# Set significant digits
+options(scipen = 20, digits = 4)
+
+# Load Tweets with meta data
+url = getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/daigotanaka-tweets-2014.csv", .encoding="UTF-8")
+tweets = read.csv(text=url, head=TRUE, stringsAsFactors=FALSE)
+# tweets = read.csv("/Users/daigo/Documents/essays/daigotanaka-tweets-2014.csv", header=TRUE)
+# Load CSV
+url = getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/tweet-activity-metrics-daigotanaka-2014.csv", .encoding="UTF-8")
+metrics = read.csv(text=url, head=TRUE, stringsAsFactors=FALSE)
+```
+
+```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE}
+# Change the column name from Tweet.id to id
+col_names = names(metrics)
+col_names[1] = "id"
+colnames(metrics) = col_names
+
+# Remove outliers and an error entry
+metrics = metrics[is.numeric(metrics$impressions) & metrics$impressions > 0 & metrics$id != 513495667927711744,]
+
+merged = merge(x=tweets, y=metrics, by="id", all=F)
+
+merged$date = as.POSIXlt(strptime(as.character(merged$time), "%Y-%m-%d %H:%M %z", tz="UTC"))
+english = subset(merged, 200 <= merged$impressions & merged$impressions <= 400 & merged$lang=="en")
+japanese = subset(merged, 200 <= merged$impressions & merged$impressions <= 400 &  merged$lang=="ja")
+
+en_values = get_timelapse_values(english$date, english$impressions, english$engagements, english$text)
+ja_values = get_timelapse_values(japanese$date, japanese$impressions, japanese$engagements, japanese$text)
+
+h <- Highcharts$new()
+h$title(text="Daigo's twitter impressions and engagements in 2014")
+h$chart(type = "bubble")
+h$xAxis(type="datetime")
+h$yAxis(title="Impressions", gridLineColor="#FFFFFF")
+h$series(name="English", data = en_values)
+h$series(name="Japanese", data = ja_values)
+h$legend(symbolWidth = 80)
+h$tooltip(pointFormat=get_point_format(y="Impressions", z="Engagements"))
+```
+
+## Publishing interactive data documents
+
+![Interactive chart](https://farm8.staticflickr.com/7341/15834649053_ca6a990af4_o.png)
+
+Data visualization is a powerful tool that let us grasp the birds-eye view of
+the data. Sophisticated visualization can present high dimensional data on
+a flat paper: it explains not only the relationship between x and y, but also
+y and z, and z and x.
+
+### Get interactive
+
+After we grasp the overview of the entire data, we may want to look into the
+details of particular part of the data. The graph on a paper is not ideal
+place to make this transition happen. Fortunately, we use computer screens
+to view the graph more often these days. The interactive visualizations on New
+York Times articles,
+[this one](http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html)
+for example, are the sophisticated example you may be already familiar.
+
+It used to require a multiple set of skills such as database (e.g. SQL),
+back-end processing (Python, Ruby, nose.js, and etc), front-end web
+application coding (JavaScript, HTML, CSS) to create such interactive
+visualizations.
+
+Thanks to the recent developments such as HTML, d3.js, and the rich libraries
+in statistical packages like R, it is much easier to author and publish
+data rich and interactive documents.
+
+### Example: Twitter impressions and engagements
+
+The chart below is a demonstration of using R-markdown to visualize my twitter
+activities in 2014. X axis is time. Y axis is number of impressions (i.e. how
+many people saw each of my tweets.) It is a bubble chart, and the size of each
+bubble represents the number of engagements (i.e. the total number of
+viewer's activities such as clicking the profile or links, and expanding the
+tweets.)
+
+```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE}
+renderChart(h, chartId="test", include_assets = TRUE, cdn = TRUE)
+```
+
+Bubble chart is one of good methods to visualize the relationship between x, y,
+and z. The chart above is also colored to distinguish the tweets in English
+and Japanese. You can clearly see I rarely tweeted in Japanese.
+
+After getting the overview of the distribution of the impressions, the
+engagements, and how often I tween in both languages, you may want to look
+into details what tweet actually got very high or low impressions or
+engagements. If you hover the mouse over a bubble, you will see the content of
+each tweet. You can also toggle each group on and off, and the chart adjusts
+the zoom automatically.
+
+### Conclusions
+
+
