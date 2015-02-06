@@ -16,7 +16,7 @@ library(rCharts)
 library(ggplot2)
 
 # Load caption helper
-code = getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/dc04b9ca4068d6464cbec61ada4e82fcf3318e55/rmd_caption_helper.R")
+code = getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/0ea596213f9f716142f5a8c6868b3fd53a1088b1/rmd_caption_helper.R")
 eval(parse(text=code))
 
 # Load rChart helper
@@ -39,7 +39,7 @@ url = getURL("https://s3-us-west-1.amazonaws.com/daigotanaka-data/tweet-activity
 metrics = read.csv(text=url, head=TRUE, stringsAsFactors=FALSE)
 ```
 
-```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE}
+```{r}
 ozone_temp = qplot(data=airquality, x=Temp, y=Ozone) +
     geom_point(aes(size=3)) +
     xlab("Temperature (F)") +
@@ -101,13 +101,17 @@ twitter_chart$tooltip(pointFormat=get_point_format(y="Impressions", z="Engagemen
 ### Motivating example
 
 Visualizing data lets us grasp the birds-eye view of data. Suppose we made many
-observations of Ozone and temperature to learn about air quality [^airquality].
-We can plot temperatures (F) and Ozone level (ppb) on x and y axes, repectively
-as in Fig.  `r fn()`. Just by looking at the plot, we gain a little insight on
-the relationship between the two measurements.
+observations of Ozone and temperature to learn about air
+quality
+```{r}
+footnote("airquality")
+```
+. We can plot temperatures (F) and Ozone level (ppb) on
+x and y axes, repectively as in Fig.  `r fn()`. Just by looking at the plot, we
+gain a little insight on the relationship between the two measurements.
 
 
-```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE, html.cap=fn("Ozone level and temperature")}
+```{r, html.cap=fn("Ozone level and temperature")}
 # Plot air quality
 ozone_temp
 ```
@@ -117,7 +121,7 @@ paper: it explains not only the relationship between x and y, but also y and z,
 z and x, and so on. We can add the measurements of wind speed (mph) to our
 plot (Fig. `r fn()`).
 
-```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE, html.cap=fn("Ozone level, temperature, and wind speed")}
+```{r, html.cap=fn("Ozone level, temperature, and wind speed")}
 # Plot with wind speed
 ozone_temp_wind
 ```
@@ -133,7 +137,7 @@ ideal place to make this transition happen. Fortunately, we use computer screens
 to view the graph more often these days. You can hover the mouse cursor over
 Fig. `r fn()` to reveal the date of the observation.
 
-```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE}
+```{r, html.cap=fn("Interactive chart of ozone level, temperature, and wind speed")}
 renderChart(ozone_chart, chartId="ozone", include_assets = TRUE, cdn = TRUE)
 ```
 
@@ -178,4 +182,9 @@ the zoom automatically.
 
 ### Conclusions
 
-[^airquality]: New York Air Quality Measurements. For health effects of http://www.epa.gov/groundlevelozone/health.html
+```{r}
+footnote_labels = c("airquality")
+footnote_contents = c("New York Air Quality Measurements. For health effects of http://www.epa.gov/groundlevelozone/health.html")
+footnotes = data.frame(label=footnote_labels, content=footnote_contents)
+renderFootNotes(footnotes)
+```
