@@ -130,14 +130,15 @@ ozone_temp_wind
 
 In the plot, I showed the wind temperature in shades of blue. Lighter blue
 indicates higher wind speed. We can observe that the wind speed tends to be
-low when the ozone level high.
+low when the ozone level is high.
 
-After we grasp the overview of the entire data, we may want to look into the
-details of particular part of the data. What if we want to know the date of the
+After grasping the overview of the data, we may want to look into the
+details of particular parts of the data. What if we want to know the date of the
 observation of the highest point of ozone level? The graph on a paper is not
-ideal place to make this transition happen. Fortunately, we use computer screens
-to view the graph more often these days. You can hover the mouse cursor over
-Fig. `r fn()` to reveal the date of the observation.
+ideal place to make the transition between the overview and in-depth look.
+Fortunately, we use computer screens to view the graph more often these days.
+You can hover the mouse cursor over Fig. `r fn()` to reveal the date of the
+observation.
 
 ```{r, html.cap=fn("Interactive chart of ozone level, temperature, and wind speed")}
 renderChart(ozone_chart, chartId="ozone", include_assets = TRUE, cdn = TRUE)
@@ -152,14 +153,14 @@ footnote("nyt")
 are the sophisticated
 example you may be already familiar.
 
-It used to require a multiple set of skills such as database (e.g. SQL),
+It used to require a set of skills such as database (e.g. SQL),
 back-end processing (Python, Ruby, nose.js, and etc), front-end web
 application coding (JavaScript, HTML, CSS) to create such interactive
 visualizations.
 
-Thanks to the recent developments such as HTML, d3.js, and the rich libraries
-in statistical packages like R, it is much easier to author and publish
-data rich and interactive documents.
+Thanks to the recent developments such as rCharts, it is now much easier to
+author and publish data rich documents in
+[R markdown](http://rmarkdown.rstudio.com/).
 
 With R markdown, one can:
 
@@ -169,14 +170,14 @@ With R markdown, one can:
 - Write narratives
 
 within a single textfile. Having to hop around different programs to do those
-acitivities is very disruptive to the thought process. With R markdown, we
+acitivities can be very disruptive to thought process. With R markdown, we
 can focus on the research without being distracted by how each tool works.
 
 ### R-markdown example: Twitter impressions and engagements
 
 Figure `r fn()` is a demonstration of using R-markdown to visualize my twitter
-activities in 2014. X axis is time. Y axis is number of impressions (i.e. how
-many people saw each of my tweets.) It is a bubble chart, and the size of each
+activities in 2014. X axis is time. Y axis is the number of impressions (i.e.
+how many people saw each of my tweets.) It is a bubble chart, and the size of each
 bubble represents the number of engagements (i.e. the total number of
 viewer's activities such as clicking the profile or links, and expanding the
 tweets.)
@@ -185,16 +186,17 @@ tweets.)
 renderChart(twitter_chart, chartId="twitter", include_assets = TRUE, cdn = TRUE)
 ```
 
-Bubble chart is one of good methods to visualize the relationship between x, y,
-and z. The chart above is also colored to distinguish the tweets in English
-and Japanese. You can clearly see I rarely tweeted in Japanese.
+Bubble chart is one of the effective methods to visualize the relationship
+between three variables. The chart above is also colored to distinguish
+the tweets in English and Japanese. With this presentation, you may easily
+notice that the majority of my tweets are in English.
 
-After getting the overview of the distribution of the impressions, the
-engagements, and how often I tween in both languages, you may want to look
-into details what tweet actually got very high or low impressions or
-engagements. If you hover the mouse over a bubble, you will see the content of
-each tweet. You can also toggle each group on and off, and the chart adjusts
-the zoom automatically.
+After getting the overview of how the impressions, the engagements and frequency
+of the tweets in each language, I may want to find out what tweet actually got
+very high or low impressions or
+engagements. In this chart, hovering the mouse over a bubble will reveal the
+content of each tweet. Each group can be toggled on and off, and the chart
+adjusts the zoom automatically.
 
 Once data is prepared, it only took 8 lines of R code to generate the chart
 with the help of [rCharts](http://ramnathv.github.io/rCharts/) package and
@@ -209,11 +211,11 @@ The entire source of this article is
 
 ### Conclusions
 
-With help of packages such as rCharts, it is now much easier to publish data
+With the help of packages such as rCharts, it is now much easier to publish data
 rich documents. R markdown let one focus on the data analysis and production of
 the manuscript without requiring in-depth knowledge of programming languages.
-With properly presented interactive charts, the online publishers may be able
-to communicate interpretation of the data effectively.
+Properly presented interactive charts help the online publishers to communicate
+interpretation of the data effectively.
 
 ### Notes
 
