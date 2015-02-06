@@ -100,12 +100,12 @@ twitter_chart$tooltip(pointFormat=get_point_format(y="Impressions", z="Engagemen
 ### Motivating example
 
 Visualizing data lets us grasp the birds-eye view of data. Suppose we made many
-observations of Ozone and temperature to learn about air
+observations of ozone and temperature to learn about air
 quality
 ```{r}
 footnote("airquality")
 ```
-. We can plot temperatures (F) and Ozone level (ppb) on
+. We can plot temperatures (F) and ozone level (ppb) on
 x and y axes, repectively as in Fig.  `r fn()`. Just by looking at the plot, we
 gain a little insight on the relationship between the two measurements.
 
@@ -127,11 +127,11 @@ ozone_temp_wind
 
 In the plot, I showed the wind temperature in shades of blue. Lighter blue
 indicates higher wind speed. We can observe that the wind speed tends to be
-low when the Ozone level high.
+low when the ozone level high.
 
 After we grasp the overview of the entire data, we may want to look into the
 details of particular part of the data. What if we want to know the date of the
-observation of the highest point of Ozone level? The graph on a paper is not
+observation of the highest point of ozone level? The graph on a paper is not
 ideal place to make this transition happen. Fortunately, we use computer screens
 to view the graph more often these days. You can hover the mouse cursor over
 Fig. `r fn()` to reveal the date of the observation.
@@ -181,6 +181,14 @@ into details what tweet actually got very high or low impressions or
 engagements. If you hover the mouse over a bubble, you will see the content of
 each tweet. You can also toggle each group on and off, and the chart adjusts
 the zoom automatically.
+
+Once data is prepared, it only took 8 lines of R code to generate the chart
+with the help of [rCharts](http://rcharts.io/) package and
+[the reusable helper function I wrote](https://gist.github.com/daigotanaka/63911907d6ceebe54a74):
+
+<script src="http://gist-it.appspot.com/https://github.com/daigotanaka/essays/blob/master/publishing-interactive-data-documents.Rmd?slice=85:92&footer=0">
+</script>
+
 
 ### Conclusions
 
