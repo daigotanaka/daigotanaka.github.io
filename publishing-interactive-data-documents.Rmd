@@ -16,7 +16,7 @@ library(rCharts)
 library(ggplot2)
 
 # Load caption helper
-code = getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/0ea596213f9f716142f5a8c6868b3fd53a1088b1/rmd_caption_helper.R")
+code = getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/be9555098bcbe92c869196318a31196d33b19584/rmd_caption_helper.R")
 eval(parse(text=code))
 
 # Load rChart helper
@@ -84,7 +84,6 @@ en_values = get_timelapse_values(english$date, english$impressions, english$enga
 ja_values = get_timelapse_values(japanese$date, japanese$impressions, japanese$engagements, japanese$text)
 
 twitter_chart <- Highcharts$new()
-twitter_chart$title(text="Daigo's twitter impressions and engagements in 2014")
 twitter_chart$chart(type = "bubble")
 twitter_chart$xAxis(type="datetime")
 twitter_chart$yAxis(title="Impressions", gridLineColor="#FFFFFF")
@@ -141,11 +140,14 @@ Fig. `r fn()` to reveal the date of the observation.
 renderChart(ozone_chart, chartId="ozone", include_assets = TRUE, cdn = TRUE)
 ```
 
-### Going interactive
+### How to
 
-The interactive visualizations on New York Times articles,
-[this one](http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html)
-for example, are the sophisticated example you may be already familiar.
+The interactive visualizations on New York Times articles
+```{r}
+footnote("nyt")
+```
+are the sophisticated
+example you may be already familiar.
 
 It used to require a multiple set of skills such as database (e.g. SQL),
 back-end processing (Python, Ruby, nose.js, and etc), front-end web
@@ -158,14 +160,14 @@ data rich and interactive documents.
 
 ### One more example: Twitter impressions and engagements
 
-The chart below is a demonstration of using R-markdown to visualize my twitter
+Figure `r fn()` is a demonstration of using R-markdown to visualize my twitter
 activities in 2014. X axis is time. Y axis is number of impressions (i.e. how
 many people saw each of my tweets.) It is a bubble chart, and the size of each
 bubble represents the number of engagements (i.e. the total number of
 viewer's activities such as clicking the profile or links, and expanding the
 tweets.)
 
-```{r, echo=FALSE, message=FALSE, comment=NA, results="asis", tidy=FALSE, cache=TRUE}
+```{r,  html.cap=fn("Interactive chart: Daigo's twitter impressions and engagements in 2014")}
 renderChart(twitter_chart, chartId="twitter", include_assets = TRUE, cdn = TRUE)
 ```
 
@@ -183,8 +185,11 @@ the zoom automatically.
 ### Conclusions
 
 ```{r}
-footnote_labels = c("airquality")
-footnote_contents = c("New York Air Quality Measurements. For health effects of http://www.epa.gov/groundlevelozone/health.html")
+footnote_labels = c("airquality", "nyt")
+footnote_contents = c(
+    "New York Air Quality Measurements. For health effects of ozone, see http://www.epa.gov/groundlevelozone/health.html",
+    "For example, see [Across U.S. Companies, Tax Rates Vary Greatly](http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html)"
+    )
 footnotes = data.frame(label=footnote_labels, content=footnote_contents)
 renderFootNotes(footnotes)
 ```
