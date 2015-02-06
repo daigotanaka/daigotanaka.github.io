@@ -8,8 +8,6 @@ output: html_document
 library(knitr)
 opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, comment=NA,
               results="asis", tidy=FALSE, cache=TRUE)
-# Set significant digits
-options(scipen = 20, digits = 4)
 
 library(RCurl)
 library(rCharts)
@@ -97,6 +95,11 @@ twitter_chart$tooltip(pointFormat=get_point_format(y="Impressions", z="Engagemen
 
 ![Interactive chart](https://farm8.staticflickr.com/7341/15834649053_ca6a990af4_o.png)
 
+When presented effectively, an interactive chart helps audience to grasp the
+overview and in-depth look of complex data. In this article, I will show
+an example of using interactive charts effectively. I also introduce R markdown
+as one of the most efficient ways of authoring data rich documents.
+
 ### Motivating example
 
 Visualizing data lets us grasp the birds-eye view of data. Suppose we made many
@@ -140,7 +143,7 @@ Fig. `r fn()` to reveal the date of the observation.
 renderChart(ozone_chart, chartId="ozone", include_assets = TRUE, cdn = TRUE)
 ```
 
-### How to
+### Interactive chart with R-markdown
 
 The interactive visualizations on New York Times articles
 ```{r}
@@ -158,7 +161,18 @@ Thanks to the recent developments such as HTML, d3.js, and the rich libraries
 in statistical packages like R, it is much easier to author and publish
 data rich and interactive documents.
 
-### One more example: Twitter impressions and engagements
+With R markdown, one can:
+
+- Load and transform data from multiple sources
+- Run statistical analysis
+- Produce figures
+- Write narratives
+
+within a single textfile. Having to hop around different programs to do those
+acitivities is very disruptive to the thought process. With R markdown, we
+can focus on the research without being distracted by how each tool works.
+
+### R-markdown example: Twitter impressions and engagements
 
 Figure `r fn()` is a demonstration of using R-markdown to visualize my twitter
 activities in 2014. X axis is time. Y axis is number of impressions (i.e. how
@@ -183,14 +197,28 @@ each tweet. You can also toggle each group on and off, and the chart adjusts
 the zoom automatically.
 
 Once data is prepared, it only took 8 lines of R code to generate the chart
-with the help of [rCharts](http://rcharts.io/) package and
-[the reusable helper function I wrote](https://gist.github.com/daigotanaka/63911907d6ceebe54a74):
+with the help of [rCharts](http://ramnathv.github.io/rCharts/) package and
+[the reusable helper function](https://gist.github.com/daigotanaka/63911907d6ceebe54a74)
+I wrote:
 
 <script src="http://gist-it.appspot.com/https://github.com/daigotanaka/essays/blob/master/publishing-interactive-data-documents.Rmd?slice=85:92&footer=0">
 </script>
 
+The entire source of this article is
+[available for viewing](https://raw.githubusercontent.com/daigotanaka/essays/master/publishing-interactive-data-documents.Rmd).
 
 ### Conclusions
+
+With help of packages such as rCharts, it is now much easier to publish data
+rich documents. R markdown let one focus on the data analysis and production of
+the manuscript without requiring in-depth knowledge of programming languages.
+With properly presented interactive charts, the online publishers may be able
+to communicate interpretation of the data effectively.
+
+### Notes
+
+- This R markdown document was processed with `r version` on `r platform`.
+- You can see [the entire change history of this post](https://github.com/daigotanaka/essays/commits/master/publishing-interactive-data-documents.Rmd).
 
 ```{r}
 footnote_labels = c("airquality", "nyt")
