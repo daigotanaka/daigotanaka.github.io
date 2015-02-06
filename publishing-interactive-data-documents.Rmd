@@ -7,7 +7,7 @@ output: html_document
 ```{r, echo=FALSE, message=FALSE}
 library(knitr)
 opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, comment=NA,
-              results="asis", tidy=FALSE, cache=TRUE)
+              results="asis", tidy=FALSE, cache=FALSE)
 
 library(RCurl)
 library(rCharts)
@@ -203,7 +203,7 @@ with the help of [rCharts](http://ramnathv.github.io/rCharts/) package and
 [the reusable helper function](https://gist.github.com/daigotanaka/63911907d6ceebe54a74)
 I wrote:
 
-<script src="http://gist-it.appspot.com/https://github.com/daigotanaka/essays/blob/master/publishing-interactive-data-documents.Rmd?slice=83:90&footer=0">
+<script src="http://gist-it.appspot.com/https://github.com/daigotanaka/essays/blob/master/publishing-interactive-data-documents.Rmd?slice=82:91&footer=0">
 </script>
 
 The entire source of this article is
