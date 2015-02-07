@@ -59,9 +59,9 @@ ozone_values = get_values(airquality$Temp, airquality$Ozone, airquality$Wind,
                           airquality$date, colors)
 ozone_chart <- Highcharts$new()
 ozone_chart$chart(type = "scatter")
-ozone_chart$xAxis(title="Temperature (F)", tickInterval=10)
-ozone_chart$yAxis(title="Ozone (ppb)", gridLineColor="#FFFFFF", floor=0)
-ozone_chart$series(name="Ozone", data=ozone_values)
+ozone_chart$xAxis(title="{text: 'Temperature (F)'}", tickInterval=10)
+ozone_chart$yAxis(title="{text: 'Ozone (ppb)'}", gridLineColor="#FFFFFF", floor=0)
+ozone_chart$series(name="Ozone", data=ozone_values, showInLegend=FALSE)
 ozone_chart$tooltip(pointFormat=get_point_format(y="Ozone", z="Wind"))
 
 # Change the column name from Tweet.id to id
@@ -84,7 +84,7 @@ ja_values = get_timelapse_values(japanese$date, japanese$impressions, japanese$e
 twitter_chart <- Highcharts$new()
 twitter_chart$chart(type = "bubble")
 twitter_chart$xAxis(type="datetime")
-twitter_chart$yAxis(title="Impressions", gridLineColor="#FFFFFF")
+twitter_chart$yAxis(title="{text: 'Impressions'}", gridLineColor="#FFFFFF")
 twitter_chart$series(name="English", data = en_values)
 twitter_chart$series(name="Japanese", data = ja_values)
 twitter_chart$legend(symbolWidth = 80)
