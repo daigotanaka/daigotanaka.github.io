@@ -123,7 +123,7 @@ paper: it explains not only the relationship between x and y, but also y and z,
 z and x, and so on. We can add the measurements of wind speed (mph) to our
 plot (Fig. `r fn()`).
 
-```{r, html.cap=fn("Ozone level, temperature, and wind speed")}
+```{r, html.cap=fn("Ozone level, temperature, and wind speed. Lighter blue indicates higher wind speed.")}
 # Plot with wind speed
 ozone_temp_wind
 ```
@@ -140,7 +140,7 @@ Fortunately, we use computer screens to view the graph more often these days.
 You can hover the mouse cursor over Fig. `r fn()` to reveal the date of the
 observation.
 
-```{r, html.cap=fn("Interactive chart of ozone level, temperature, and wind speed")}
+```{r, html.cap=fn("Interactive chart of ozone level, temperature, and wind speed. Hover the mouse cursor over to reveal the date.")}
 renderChart(ozone_chart, chartId="ozone", include_assets = TRUE, cdn = TRUE)
 ```
 
@@ -182,7 +182,7 @@ each bubble represents the number of engagements (i.e. the total number of
 viewer's activities such as clicking the profile or links, and expanding the
 tweets.)
 
-```{r,  html.cap=fn("Interactive chart: Daigo's twitter impressions and engagements in 2014")}
+```{r,  html.cap=fn("Interactive chart: Daigo's twitter impressions and engagements in 2014. The size of the bubble coresponds to the number of engagements. Hover the mouse cursor over to reveal the details.")}
 renderChart(twitter_chart, chartId="twitter", include_assets = TRUE, cdn = TRUE)
 ```
 
