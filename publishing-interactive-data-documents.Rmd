@@ -158,7 +158,8 @@ back-end processing (Python, Ruby, nose.js, and etc), front-end web
 application coding (JavaScript, HTML, CSS) to create such interactive
 visualizations.
 
-Thanks to the recent developments such as rCharts, it is now much easier to
+Thanks to the recent developments such as
+[rCharts](http://ramnathv.github.io/rCharts/), it is now much easier to
 author and publish data rich documents in
 [R markdown](http://rmarkdown.rstudio.com/).
 
@@ -199,7 +200,7 @@ content of each tweet. Each group can be toggled on and off, and the chart
 adjusts the zoom automatically.
 
 Once data is prepared, it only took 8 lines of R code to generate the chart
-with the help of [rCharts](http://ramnathv.github.io/rCharts/) package and
+with the help of rCharts package and
 [the reusable helper function](https://gist.github.com/daigotanaka/63911907d6ceebe54a74)
 I wrote:
 
