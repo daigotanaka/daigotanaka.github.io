@@ -109,7 +109,7 @@ quality
 footnote("airquality")
 ```
 . We can plot temperatures (F) and ozone level (ppb) on
-x and y axes, repectively as in Fig.  `r fn()`. Just by looking at the plot, we
+x and y axes, respectively as in Fig.  `r fn()`. Just by looking at the plot, we
 gain a little insight on the relationship between the two measurements.
 
 
@@ -169,8 +169,8 @@ With R markdown, one can:
 - Produce figures
 - Write narratives
 
-within a single textfile. Having to hop around different programs to do those
-acitivities can be very disruptive to thought process. With R markdown, we
+Within a single text file. Having to hop around different programs to do those
+activities can be very disruptive to thought process. With R markdown, we
 can focus on the research without being distracted by how each tool works.
 
 ### R-markdown example: Twitter impressions and engagements
