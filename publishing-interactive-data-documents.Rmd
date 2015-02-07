@@ -225,7 +225,7 @@ interpretation of the data effectively.
 ```{r}
 footnote_labels = c("airquality", "nyt")
 footnote_contents = c(
-    'New York Air Quality Measurements. For health effects of ozone, see <a href="http://www.epa.gov/groundlevelozone/health.html">here</a>',
+    '<a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/airquality.html">New York Air Quality Measurements data</a> is available in datasets package in R. For health effects of ozone, see <a href="http://www.epa.gov/groundlevelozone/health.html">here</a>',
     'For example, see <a href="http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html">Across U.S. Companies, Tax Rates Vary Greatly</a>'
     )
 footnotes = data.frame(label=footnote_labels, content=footnote_contents)
