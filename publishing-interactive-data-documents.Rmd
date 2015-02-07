@@ -150,8 +150,8 @@ The interactive visualizations on New York Times articles
 ```{r}
 footnote("nyt")
 ```
-are the sophisticated
-example you may be already familiar.
+are some of the sophisticated
+examples you may be already familiar.
 
 It used to require a set of skills such as database (e.g. SQL),
 back-end processing (Python, Ruby, nose.js, and etc), front-end web
@@ -213,7 +213,7 @@ The entire source of this article is
 ### Conclusions
 
 With the help of packages such as rCharts, it is now much easier to publish data
-rich documents. R markdown let one focus on the data analysis and production of
+rich documents. R markdown lets one focus on the data analysis and production of
 the manuscript without requiring in-depth knowledge of programming languages.
 Properly presented interactive charts help the online publishers to communicate
 interpretation of the data effectively.
