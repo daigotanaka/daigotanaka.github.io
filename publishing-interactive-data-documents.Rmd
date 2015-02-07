@@ -14,7 +14,7 @@ library(rCharts)
 library(ggplot2)
 
 # Load caption helper
-code = getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/be9555098bcbe92c869196318a31196d33b19584/rmd_caption_helper.R")
+code = getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/47ef1310df4959d2c4d2b783af86581e8d670c21/rmd_caption_helper.R")
 eval(parse(text=code))
 
 # Load rChart helper
