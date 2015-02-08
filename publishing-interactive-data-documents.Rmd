@@ -159,7 +159,7 @@ Thanks to recent developments such as
 author and publish data-rich documents in
 [R markdown](http://rmarkdown.rstudio.com/).
 
-With R markdown, one can:
+With R markdown, we can:
 
 - Load and transform data from multiple sources
 - Run statistical analysis
@@ -209,10 +209,10 @@ The entire source of this article is
 ### Conclusions
 
 With the help of rCharts package, it is now much easier to publish data-rich
-documents. R markdown lets one focus on the data analysis and production of the
+documents. R markdown lets us focus on the data analysis and production of the
 manuscript without requiring in-depth knowledge of programming languages.
-Properly presented interactive charts help the online publishers to communicate
-interpretation of the data effectively.
+Properly presented interactive charts help online publishers communicate data
+and their interpretations effectively
 
 ### Notes
 
