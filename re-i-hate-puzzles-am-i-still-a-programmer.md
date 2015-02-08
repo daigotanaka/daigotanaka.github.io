@@ -16,7 +16,7 @@ intellectually get stimulated and engaged in creative processes including
 solving puzzle. It is important because of the direct relationship to how we
 assess our candidate engineers.
 
-### Many forms of puzzels including product development
+### Many forms of puzzles including product development
 
 There are many different kinds of puzzles...if you take all the things that
 "puzzle" us. Hemel first showed jigsaw puzzle. Sudoku and crosswords are other
@@ -101,10 +101,11 @@ implement binary search without recursion, but I still would like to see them
 keep on fighting to solve the problem instead of easily given in just because
 they don't recall the textbook answer.
 
-At FiveStars, our on-site interview tries to balance algorithm and design
-questions. We also pair-code with candidates, and have lunch together. As a
-product-focused company, we are looking for a candiate much better and
+At FiveStars[^disclaimer], our on-site interview tries to balance algorithm and
+design questions. We also pair-code with candidates, and have lunch together.
+As a product-focused company, we are looking for a candidate much better and
 all-round than just solving hypothetical puzzles. 
 
 [^hemel]: [I Hate Puzzles: Am I Still A Programmer? -- Zef.me](http://zef.me/3666/i-hate-puzzles/)
 [^fivestars]: FiveStars is [hiring](http://www.fivestars.com/team/careers/)! Please find out who we are in [one](http://techcrunch.com/2014/09/25/helping-local-businesses-get-the-five-star-review-fivestars-raises-26-million/) of many articles about us.
+[^disclaimer]: This article does not represent the view or hiring policy by FiveStars.
