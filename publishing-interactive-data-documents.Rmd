@@ -135,8 +135,8 @@ low when the ozone level is high.
 After getting an overview of the data, we may want to look at more detailed
 views of particular parts of the data.  What if we want to know when the
 highest ozone level was observed? Fortunately, we use computer screens to view
-the graph more often these days.  You can hover the mouse cursor over Fig. `r
-fn()` to reveal the date of the observation.
+the graph more often these days.  You can hover the mouse cursor over Fig.
+`r fn()` to reveal the date of the observation.
 
 ```{r, html.cap=fn("Interactive chart of ozone level, temperature, and wind speed. Hover the mouse cursor over to reveal the date.")}
 renderChart(ozone_chart, chartId="ozone", include_assets = TRUE, cdn = TRUE)
