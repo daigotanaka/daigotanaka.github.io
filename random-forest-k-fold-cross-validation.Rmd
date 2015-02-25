@@ -376,7 +376,10 @@ It should also be noted that I found running caret package with rf option
 to be significantly slower than directly running randomForest package. With a
 similar reason, K-fold cross-validation was coded by authors instead of using
 rfcv function from randomForest package. See the source code
-`r fn$label("source")` for details of the implementation.
+```{r}
+fn$label("source")
+```
+for details of the implementation.
 
 ## Conclusions
 
