@@ -1,0 +1,391 @@
+---
+title: A simple example of building a Random Forest model
+author: "Daigo Tanaka"
+date: "February 23, 2015"
+output: html_document
+---
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# My usual front matter
+
+message(paste("Working directory:", getwd(), sep=" "))
+
+library(knitr)
+library(RCurl)
+library(randomForest)
+library(ggplot2)
+library(caret)
+
+version <- sessionInfo()$R.version$version.string
+platform <- sessionInfo()$platform
+
+opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, comment=NA,
+              results="asis", tidy=FALSE, cache=FALSE)
+
+# Set significant digits
+options(scipen = 20, digits = 2)
+
+# Load caption helper
+code <- getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/7b18cf743cc776b0e82f6d3605f194e7143b031f/rmd_caption_helper.R")
+eval(parse(text=code))
+```
+
+```{r}
+# Data transformation and analysis
+
+# The original data is http://groupware.les.inf.puc-rio.br/har and I kept a copy
+# on AWS S3, retrieved on Feb 23, 2015
+dataUrl <- "https://s3-us-west-1.amazonaws.com/daigotanaka-data"
+dataZip <- "WearableComputing_weight_lifting_exercises_biceps_curl_variations.csv_20150223.zip"
+dataCsv <- "WearableComputing_weight_lifting_exercises_biceps_curl_variations.csv"
+
+# If it hasn't, download and unzip the data
+if (!file.exists(dataCsv)) {
+    if (!file.exists(dataZip)) {
+        # Download the data
+        download.file(url=paste(dataUrl, dataZip, sep="/"),
+                      destfile=dataZip,
+                      method="wget")
+    }
+    unzip(dataZip, dataCsv)
+}
+dataSet = read.csv(dataCsv, na.strings=c("", "NA", "NULL", "#DIV/0!"))
+
+# Create training(60%) and testing(40%) data sets
+set.seed(632) # Set seed of pseudo random numbers for reproducibility
+inTrain <- createDataPartition(y=dataSet$classe, p=0.6, list=FALSE)
+training <- dataSet[inTrain,]
+testing <- dataSet[-inTrain,]
+```
+
+```{r}
+# Data transformation and analysis
+
+# Set seed of pseudo random number generation for reproducibility
+set.seed(1254)
+
+# Cleaning data
+columnNames <- names(training)
+
+naCounts <- c()
+for (i in 1:ncol(training)) {
+    naCounts[i] <- length(training[is.na(training[, i]), i])
+}
+naCounts <- naCounts[order(-naCounts)]
+
+# Do not use columns with > 50% NAs
+cutOff = nrow(training) * 0.5
+colsUsed <- c()
+for (i in 1:ncol(training)) {
+    colsUsed[i] <- (
+        i == ncol(training) ||  # classe
+        length(training[!is.na(training[, i]), i]) >= cutOff &&
+        (class(training[1, i]) != "factor" || levels(training[1, i]) < 53))
+}
+
+# It looks like col X is IDs and classe is sorted that way so let's not use this
+# as predictor
+colsUsed[1] <- FALSE
+
+# Obviously use_name does nothing to do with the classifciation
+colsUsed[2] <- FALSE
+
+# Nor do time stamps...
+colsUsed[3] <- FALSE
+colsUsed[4] <- FALSE
+colsUsed[5] <- FALSE
+
+# Don't use new_window & num_window
+colsUsed[6] <- FALSE
+colsUsed[7] <- FALSE
+
+# length(which(colsUsed == TRUE))
+
+trainingUsed <- training[, colsUsed]
+
+# Small portion of the data misssing values regardless
+rowsUsed = which(rowSums(is.na(trainingUsed))==0)
+# length(rowsUsed)
+
+trainingUsed <- training[rowsUsed , colsUsed]
+
+# Build the initial model
+initialModel <- randomForest(
+    trainingUsed$classe ~ .,
+    data=trainingUsed,
+    ntree=10)
+
+# Find important variables
+
+# varImpPlot(initialModel) produces the plot but I want prettier one:
+imp <- importance(initialModel)
+imp <- imp[order(-imp),]
+impDf <- data.frame(MeanDecreaseGini=imp)
+impDf$VariableName <- factor(names(imp), levels = rev(names(imp)))
+impPlot <- ggplot(data=impDf, aes(x=VariableName, y=MeanDecreaseGini)) +
+    geom_bar(fill="#FF9999", stat="identity") + coord_flip()
+
+# Also create log version to show where to cut off
+logImpPlot <- ggplot(data=impDf, aes(x=VariableName, y=log(MeanDecreaseGini))) +
+    geom_point(fill="#FF9999", stat="identity") +
+    stat_smooth(
+        method = "lm",
+        data=impDf,
+        aes(x=as.numeric(VariableName),
+            y=log(MeanDecreaseGini))) +
+    coord_flip()
+
+# Based on the mean Gini decrease analysis, use the most important predictors
+logImpDf = data.frame(x=as.numeric(impDf$VariableName), y=log(impDf$MeanDecreaseGini))
+lmLogImp = lm(y ~ x, data=logImpDf)
+newData = data.frame(x=c(nrow(logImpDf):1))
+predictedLogImp = predict(lmLogImp, newdata=newData)
+
+# Count until the predicted log(MeanDecreaseGini) becomes greater than actual
+numImp = 0
+for (i in 1:length(newData$x)) {
+    if (predictedLogImp[i] > logImpDf[i,]$y) break
+    numImp <- numImp + 1
+}
+
+# Use top numImp predictors for this model
+predictorsUsed <- names(imp)[1:numImp]
+
+# Add the predicted variable
+variablesUsed <- c(predictorsUsed, "classe")
+
+# Wrap the randomForest with a helper function for repeated uses
+buildModel = function(training) {
+    model <- randomForest(
+    training$classe ~ .,
+    data=training,
+    ntree=10)
+    return (model)
+}
+
+# Do K-fold cross-validation (k=10)
+k = 10
+# Assign each observation to one of 10 folds
+# Note that this replace=TRUE is NOT replacing the observation when sampling
+id <- sample(1:k, nrow(training), replace=TRUE)
+list <- 1:k
+
+prediction <- data.frame()
+actual <- data.frame()
+
+importantVars = c()
+for (i in 1:k){    
+    # Create training set from all training date except i-th fold
+    currentTraining <- subset(training[, variablesUsed], id %in% list[-i])
+    currentTesting <- subset(training[, variablesUsed], id %in% c(i))
+
+    currentModel <- buildModel(currentTraining)
+
+    message(paste("Model ", i))
+    # print(currentModel$confusion)
+    
+    currentPrediction <- as.data.frame(predict(currentModel, currentTesting))
+    prediction <- rbind(prediction, currentPrediction)
+    
+    currentActual <- as.data.frame(currentTesting$classe)
+    actual <- rbind(actual, currentActual)
+}
+
+result <- cbind(prediction, actual[, 1])
+names(result) <- c("Predicted", "Actual")
+confusionMatrix = table(result)
+hit = 0
+for (i in 1:5) {
+    hit <- hit + confusionMatrix[i, i]
+}
+accuracy <- hit / sum(confusionMatrix)
+
+# Create the final model using all the training data
+finalModel <- buildModel(training[, variablesUsed])
+systemTime <- system.time(buildModel(training[, variablesUsed]))
+finalConfusionMatrix <- finalModel$confusion[1:5,1:5]
+hit <- 0
+for (i in 1:5) {
+    hit <- hit + finalConfusionMatrix[i, i]
+}
+finalInSampleAccuracy <- hit / sum(finalConfusionMatrix)
+
+# Finally, prediction with the testing data
+finalPrediction <- as.character(predict(finalModel, testing))
+finalHit = length(which(testing$classe == finalPrediction))
+finalPredictionAccuracy = finalHit / nrow(testing)
+```
+## A simple example of building a Random Forest model
+
+I wanted to write a thought process one could take to practice Random Forest
+method using a dataset from an actual research. The reader can follow my
+steps by reading through the article, then refer to the source code
+```{r}
+footnote("source")
+```
+later to see how it is implemented in R.
+
+The example dataset, "Weight Lifting Exercise Dataset" was made publicly
+available by Velloso, et al.
+```{r}
+footnote("dataset")
+```
+I chose this dataset because it is actually easy to achieve high accuracy with
+a simple use of Random Forest, yet we learn some practical aspect of building
+machine learning models.
+
+The dataset records the measurements from the sensors attached to the glove,
+armband, lumbar belt and dumbbell while the participants lift the dumbbell in
+5 different ways: One exactly according to the specification and 4 representing
+the common mistakes.
+```{r}
+footnote("Velloso2013")
+```
+
+Given a training dataset, the goal is to generate a machine learning model to
+accurately classify the dataset into the 5 classes.
+
+## Data
+
+The data file has `r nrow(dataSet)` observations from
+`r length(levels(dataSet$user_name))` participants, recording 10 repetitions of
+the unilateral dumbbell biceps curl. Each weight lifting activity is labeled as
+Class A (according to the specification), Class B (throwing the elbows to the
+front), Class C (lifting the dumbbell only halfway), Class D (lowering the
+dumbbell only halfway), or Class E(throwing the hips to the front).
+
+The 60% of the observation was picked randomly to create a training dataset, and
+the rest was kept as test dataset. Only training data set was used to build
+the model, and the test dataset was used to benchmark the out-of-sample
+accuracy.
+
+As soon as I glanced the data, it became clear that some clean-up of the data
+was necessary: There are `r ncol(training)` columns in the data table, however;
+`r length(naCounts[naCounts < 1])` of them contained N/A only. Besides, the
+first 7 columns (`r paste(columnNames[1:7], collapse=", ")`) are IDs for users
+and observations, time stamps, or window information that should not be used as
+predictors.
+
+## Model building
+
+As an initial model building attempt, Random Forest with 10 trees was chosen for
+model building. Due to the memory implications, a decision was made to drop the
+columns that has more than 53 levels of factors.
+```{r}
+footnote("factors")
+```
+
+Total of `r ncol(trainingUsed) - 1` predictors were used to create the initial
+model. Figure `r fn()` shows the mean decrease of Gini impurity
+```{r}
+footnote("gini")
+```
+for each variable. The Gini impurity seems to be decreasing exponentially.
+
+```{r, html.cap=fn("The Random Forest predictors sorted by the importance measured by mean decrease of Gini impurity.")}
+impPlot
+```
+
+In order to avoid over-fitting to the training and alleviate the
+computation, I wanted to pick the most important variables. To have a clear
+rule in deciding where to cut off the mean decrease of Gini impurity, Fig.
+`r fn()` was created by taking log of the mean decrease of Gini impurity, then
+the regression line was added. The figure indicates the top `r numImp` important
+variables are especially contributing to the decrease of Gini impurity.
+
+The `r numImp` most important variables are used to make the final model. The
+variables used in the final model are
+`r paste(predictorsUsed[-length(predictorsUsed)], collapse=", ")`, and
+`r predictorsUsed[length(predictorsUsed)]`.
+
+```{r, html.cap=fn("Log of the mean decrease of Gini impurity with regression line")}
+logImpPlot
+```
+
+## Result
+
+### Cross-validation
+
+A K-fold cross-validation
+```{r}
+footnote("kfcv")
+```
+was performed to measure the accuracy of the
+model (k=10). Table `r tn()` shows the confusion matrix from the K-fold
+cross-validation. The overall accuracy was `r 100 * accuracy`% (or estimated
+error rate of `r 100 * (1 - accuracy)`%).
+
+`r render_caption(tn("Confusion matrix from the K-fold cross-validation (k=10)"))`
+
+|              | Actual: A | B    | C    | D    | E    |
+| -----------: | --------: | ---: | ---: | ---: | ---: |
+| **Predicted: A** | `r confusionMatrix[1,1]` | `r confusionMatrix[1,2]` | `r confusionMatrix[1,3]` | `r confusionMatrix[1,4]` | `r confusionMatrix[1,5]` |
+| **B**            | `r confusionMatrix[2,1]` | `r confusionMatrix[2,2]` | `r confusionMatrix[2,3]` | `r confusionMatrix[2,4]` | `r confusionMatrix[2,5]` |
+| **C**            | `r confusionMatrix[3,1]` | `r confusionMatrix[3,2]` | `r confusionMatrix[3,3]` | `r confusionMatrix[3,4]` | `r confusionMatrix[3,5]` |
+| **D**            | `r confusionMatrix[4,1]` | `r confusionMatrix[4,2]` | `r confusionMatrix[4,3]` | `r confusionMatrix[4,4]` | `r confusionMatrix[4,5]` |
+| **E**            | `r confusionMatrix[5,1]` | `r confusionMatrix[5,2]` | `r confusionMatrix[5,3]` | `r confusionMatrix[5,4]` | `r confusionMatrix[5,5]` |
+
+
+### Expected out of sample error
+
+The high accuracy result from K-fold cross-validation did not require further
+search of the models. Using the 10 chosen predictors, the final model was
+created from the entire training data set.
+
+The in-sample accuracy of the final model was `r 100 * finalInSampleAccuracy`%.
+So the out of sample error is expected to be higher than
+`r 100 * (1.0 - finalInSampleAccuracy)`%. The accuracy seemed to be promising
+for this model to be used to classify the test data set.
+
+### Predicting with the test dataset
+
+The final model was used to classify the test dataset. Out of `r nrow(testing)`,
+the model classified `r finalHit` cases correctly, achieving
+`r 100 * finalPredictionAccuracy`% accuracy.
+
+### Notes on performance considerations
+
+The model was built with `r version` on `r platform`. The hardware was an Apple
+MacBook Pro with 2.4GHz Intel Core i7 CPU with 8GB 1333 MHz DDR3 RAM.
+
+With the order of magnitude smaller number of predictors than the initial model,
+it took only `r systemTime[3]` seconds of elapsed time to build the model.
+
+It should also be noted that I found running caret package with rf option
+```{r}
+footnote("caret")
+```
+to be significantly slower than directly running randomForest package. With a
+similar reason, K-fold cross-validation was coded by authors instead of using rfcv
+function from randomForest package. See the source code
+```{r}
+footnote("source")
+```
+for details of the implementation.
+
+## Conclusions
+
+In this article, I wrote a steps to create a Random Forest model to classfy
+the weight lifting exercise. The model was built with `r numImp` most important
+predictors determined through the analysis of the mean decrease of Gini
+impurity.
+
+Because the data used in this example was recorded in a controlled experiment,
+the final model classified the test data with a high accuracy without iterations
+of model improvement. In reality, we should expect many more iterations of
+data analysis before achieving the satisfactory out-of-sample error rate.
+
+```{r}
+footnote_labels = c("source", "Velloso2013", "dataset", "factors", "gini", "kfcv", "caret")
+footnote_contents = c(
+    paste('The R source code produced the analysis and this report is available from <a href="https://github.com/daigotanaka/practical-ml-final-project/blame/master/practical-ml-final-project.Rmd">github page</a>', sep=""),
+    'Velloso, E.; Bulling, A.; Gellersen, H.; Ugulino, W.; Fuks, H. Qualitative Activity Recognition of Weight Lifting Exercises. Proceedings of 4th International Conference in Cooperation with SIGCHI (Augmented Human \'13) . Stuttgart, Germany: ACM SIGCHI, 2013.',
+     'Data set can be downloaded from <a href="http://groupware.les.inf.puc-rio.br/har">here</a>',
+    "randomForest package of R cannot handle the factor variable with over 53 levels.",
+    'See Gini impurity subsection in Metrics section of <a href="http://en.wikipedia.org/wiki/Decision_tree_learning#Metrics">Decision tree learning</a> on Wikipedia',
+    'See k-fold cross-validation section of <a href="http://en.wikipedia.org/wiki/Cross-validation_%28statistics%29#k-fold_cross-validation">Cross-validation</a> on Wikipedia',
+    '<a href="http://topepo.github.io/caret/Random_Forest.html">Random Forest Models - The caret Package</a>')
+footnotes = data.frame(label=footnote_labels, content=footnote_contents)
+renderFootNotes(
+    footnotes,
+    head="<h3>References and notes</h3>")
+```
