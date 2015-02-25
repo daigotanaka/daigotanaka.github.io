@@ -25,8 +25,12 @@ opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, comment=NA,
 options(scipen = 20, digits = 2)
 
 # Load caption helper
-code <- getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/7b18cf743cc776b0e82f6d3605f194e7143b031f/rmd_caption_helper.R")
+code <- getURL("https://gist.githubusercontent.com/daigotanaka/17930c2ff891e05a83f5/raw/bd0615a9f52de5cad5d122cdf4f0fcf4f9feac45/rmd_caption_helper.R")
 eval(parse(text=code))
+
+fig <- Caption$new()
+tab <- Caption$new("Table")
+fn <- Footnote$new()
 ```
 
 ```{r}
@@ -217,17 +221,27 @@ finalPredictionAccuracy = finalHit / nrow(testing)
 ## A simple example of building a Random Forest model
 
 I wanted to write a thought process one could take to practice Random Forest
-method using a dataset from an actual research. The reader can follow my
+method using a dataset from an actual research. The intended audience is narrow
+and specific: Someone who learned how Random Forest works, but not so sure what
+the actual steps to create a model and validate it. The reader can follow the
 steps by reading through the article, then refer to the source code
 ```{r}
-footnote("source")
+fn$label(
+    "source",
+    paste(
+        'The R source code produced the analysis and this report is available from <a href="https://github.com/daigotanaka/essays/blame/master/random-forest-k-fold-cross-validation.Rmd">github page</a>',
+        sep="")
+)
 ```
 later to see how it is implemented in R.
 
 The example dataset, "Weight Lifting Exercise Dataset" was made publicly
 available by Velloso, et al.
 ```{r}
-footnote("dataset")
+fn$label(
+    "dataset",
+    'Data set can be downloaded from <a href="http://groupware.les.inf.puc-rio.br/har">here</a>'
+)
 ```
 I chose this dataset because it is actually easy to achieve high accuracy with
 a simple use of Random Forest, yet we learn some practical aspect of building
@@ -238,7 +252,10 @@ armband, lumbar belt and dumbbell while the participants lift the dumbbell in
 5 different ways: One exactly according to the specification and 4 representing
 the common mistakes.
 ```{r}
-footnote("Velloso2013")
+fn$label(
+    "Velloso2013",
+    'Velloso, E.; Bulling, A.; Gellersen, H.; Ugulino, W.; Fuks, H. Qualitative Activity Recognition of Weight Lifting Exercises. Proceedings of 4th International Conference in Cooperation with SIGCHI (Augmented Human \'13) . Stuttgart, Germany: ACM SIGCHI, 2013.'
+)
 ```
 
 Given a training dataset, the goal is to generate a machine learning model to
@@ -271,24 +288,28 @@ As an initial model building attempt, Random Forest with 10 trees was chosen for
 model building. Due to the memory implications, a decision was made to drop the
 columns that has more than 53 levels of factors.
 ```{r}
-footnote("factors")
+fn$label(
+    "factors",
+    "randomForest package of R cannot handle the factor variable with over 53 levels."
+)
 ```
 
 Total of `r ncol(trainingUsed) - 1` predictors were used to create the initial
-model. Figure `r fn()` shows the mean decrease of Gini impurity
-```{r}
-footnote("gini")
-```
+model. Figure
+`r fig$label("gini", "The Random Forest predictors sorted by the importance measured by mean decrease of Gini impurity.")`
+shows the mean decrease of Gini impurity
+`r fn$label("gini", 'See Gini impurity subsection in Metrics section of <a href="http://en.wikipedia.org/wiki/Decision_tree_learning#Metrics">Decision tree learning</a> on Wikipedia')`
 for each variable. The Gini impurity seems to be decreasing exponentially.
 
-```{r, html.cap=fn("The Random Forest predictors sorted by the importance measured by mean decrease of Gini impurity.")}
+```{r, html.cap=fig$text("gini")}
 impPlot
 ```
 
 In order to avoid over-fitting to the training and alleviate the
 computation, I wanted to pick the most important variables. To have a clear
 rule in deciding where to cut off the mean decrease of Gini impurity, Fig.
-`r fn()` was created by taking log of the mean decrease of Gini impurity, then
+`r fig$label("loggini", "Log of the mean decrease of Gini impurity with regression line")`
+was created by taking log of the mean decrease of Gini impurity, then
 the regression line was added. The figure indicates the top `r numImp` important
 variables are especially contributing to the decrease of Gini impurity.
 
@@ -297,7 +318,7 @@ variables used in the final model are
 `r paste(predictorsUsed[-length(predictorsUsed)], collapse=", ")`, and
 `r predictorsUsed[length(predictorsUsed)]`.
 
-```{r, html.cap=fn("Log of the mean decrease of Gini impurity with regression line")}
+```{r, html.cap=fig$text("loggini")}
 logImpPlot
 ```
 
@@ -306,15 +327,15 @@ logImpPlot
 ### Cross-validation
 
 A K-fold cross-validation
-```{r}
-footnote("kfcv")
-```
+`r fn$label("kfcv", 'See k-fold cross-validation section of <a href="http://en.wikipedia.org/wiki/Cross-validation_%28statistics%29#k-fold_cross-validation">Cross-validation</a> on Wikipedia')`
 was performed to measure the accuracy of the
-model (k=10). Table `r tn()` shows the confusion matrix from the K-fold
+model (k=10). Table
+`r tab$label("confusionmatrix", "Confusion matrix from the K-fold cross-validation (k=10)")`
+shows the confusion matrix from the K-fold
 cross-validation. The overall accuracy was `r 100 * accuracy`% (or estimated
 error rate of `r 100 * (1 - accuracy)`%).
 
-`r render_caption(tn("Confusion matrix from the K-fold cross-validation (k=10)"))`
+`r render_caption(tab$text("confusionmatrix"))`
 
 |              | Actual: A | B    | C    | D    | E    |
 | -----------: | --------: | ---: | ---: | ---: | ---: |
@@ -351,16 +372,11 @@ With the order of magnitude smaller number of predictors than the initial model,
 it took only `r systemTime[3]` seconds of elapsed time to build the model.
 
 It should also be noted that I found running caret package with rf option
-```{r}
-footnote("caret")
-```
+`r fn$label("caret", '<a href="http://topepo.github.io/caret/Random_Forest.html">Random Forest Models - The caret Package</a>')`
 to be significantly slower than directly running randomForest package. With a
-similar reason, K-fold cross-validation was coded by authors instead of using rfcv
-function from randomForest package. See the source code
-```{r}
-footnote("source")
-```
-for details of the implementation.
+similar reason, K-fold cross-validation was coded by authors instead of using
+rfcv function from randomForest package. See the source code
+`r fn$label("source")` for details of the implementation.
 
 ## Conclusions
 
@@ -375,17 +391,5 @@ of model improvement. In reality, we should expect many more iterations of
 data analysis before achieving the satisfactory out-of-sample error rate.
 
 ```{r}
-footnote_labels = c("source", "Velloso2013", "dataset", "factors", "gini", "kfcv", "caret")
-footnote_contents = c(
-    paste('The R source code produced the analysis and this report is available from <a href="https://github.com/daigotanaka/essays/blame/master/random-forest-k-fold-cross-validation.Rmd">github page</a>', sep=""),
-    'Velloso, E.; Bulling, A.; Gellersen, H.; Ugulino, W.; Fuks, H. Qualitative Activity Recognition of Weight Lifting Exercises. Proceedings of 4th International Conference in Cooperation with SIGCHI (Augmented Human \'13) . Stuttgart, Germany: ACM SIGCHI, 2013.',
-     'Data set can be downloaded from <a href="http://groupware.les.inf.puc-rio.br/har">here</a>',
-    "randomForest package of R cannot handle the factor variable with over 53 levels.",
-    'See Gini impurity subsection in Metrics section of <a href="http://en.wikipedia.org/wiki/Decision_tree_learning#Metrics">Decision tree learning</a> on Wikipedia',
-    'See k-fold cross-validation section of <a href="http://en.wikipedia.org/wiki/Cross-validation_%28statistics%29#k-fold_cross-validation">Cross-validation</a> on Wikipedia',
-    '<a href="http://topepo.github.io/caret/Random_Forest.html">Random Forest Models - The caret Package</a>')
-footnotes = data.frame(label=footnote_labels, content=footnote_contents)
-renderFootNotes(
-    footnotes,
-    head="<h3>References and notes</h3>")
+fn$render(head="<h3>References and notes</h3>")
 ```
