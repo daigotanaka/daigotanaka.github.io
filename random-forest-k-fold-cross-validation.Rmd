@@ -377,7 +377,7 @@ data analysis before achieving the satisfactory out-of-sample error rate.
 ```{r}
 footnote_labels = c("source", "Velloso2013", "dataset", "factors", "gini", "kfcv", "caret")
 footnote_contents = c(
-    paste('The R source code produced the analysis and this report is available from <a href="https://github.com/daigotanaka/practical-ml-final-project/blame/master/practical-ml-final-project.Rmd">github page</a>', sep=""),
+    paste('The R source code produced the analysis and this report is available from <a href="https://github.com/daigotanaka/essays/blame/master/random-forest-k-fold-cross-validation.Rmd">github page</a>', sep=""),
     'Velloso, E.; Bulling, A.; Gellersen, H.; Ugulino, W.; Fuks, H. Qualitative Activity Recognition of Weight Lifting Exercises. Proceedings of 4th International Conference in Cooperation with SIGCHI (Augmented Human \'13) . Stuttgart, Germany: ACM SIGCHI, 2013.',
      'Data set can be downloaded from <a href="http://groupware.les.inf.puc-rio.br/har">here</a>',
     "randomForest package of R cannot handle the factor variable with over 53 levels.",
