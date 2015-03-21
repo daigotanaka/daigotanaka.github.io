@@ -12,7 +12,7 @@ And the graphical user interface was terribly done quite often. So, even now,
 we may not have a slight hesitation in blaming the engineers on subpar product
 experiences.
 
-These days, most of (?) the companies have UX designers and product managers.
+These days, most (?) companies have UX designers and product managers.
 Often, engineers' responsibility is to simply take specifications and convert
 into code.
 
@@ -30,3 +30,5 @@ contributors. I have a great appreciation to the team especially because I
 did everything by myself at least once...badly.
 
 *Report grammatical errors [here](https://github.com/daigotanaka/essays/pull/8/files?diff=unified)*
+
+*Thanks Eric Leung for correcting a grammatical error.*
