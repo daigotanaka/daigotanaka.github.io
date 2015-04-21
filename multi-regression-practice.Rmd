@@ -173,7 +173,11 @@ sum.lm.all.in$coeff
 
 #### Model 3
 
-I first focus on finding the co-linearity among the independent variables that has the effect of inflating variance. One measurement we can use is variable inflation factor (VIF). The algorithm is:
+I first focus on finding the co-linearity among the independent variables that has the effect of inflating variance. One measurement we can use is variable inflation factor (VIF
+```{r}
+fn$label("vif")
+```
+). The algorithm is:
 
 1. Start with all the variables. Set the current VIF threshold to 5.
 1. Build the regression model with the current set of independent variables.
@@ -220,5 +224,6 @@ In the model created by simple step-wise VIF analysis, p-value for transmission 
 
 ```{r}
 fn$update("source", 'The R markdown source code generated this document is availalbe on <a href="https://github.com/daigotanaka/datascience-capstone/blob/master/multi-regression-practice.Rmd" target="_blank">github repository</a>.')
+fn$update("vif", '<a href="http://en.wikipedia.org/wiki/Variance_inflation_factor" target="_blank">Variable Inflation Factor</a>.')
 fn$render(head='<h3 class="nocount">References and notes</h3>')
 ```
