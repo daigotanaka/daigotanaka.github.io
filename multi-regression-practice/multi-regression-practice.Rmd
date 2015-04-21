@@ -232,7 +232,7 @@ As described in the preliminary analysis, simple t-test of MPG by transmission t
 In the model created by simple step-wise VIF analysis, p-value for transmission type is less than 0.05, and the coefficient ($\beta_{am}$) is `r round(sum.lm.vif$coefficients[4,1], 2)`, meaning that manual transmission has higher MPG than automatic transmission by `r round(sum.lm.vif$coefficients[4,1], 2)` MPG. However, this model has relatively poor fit compared to the final model, and it was rejected. In the final model, the transmission type was not strongly related to MPG after adjustment if we take p-value of 0.05 as the threshold. If we relax the p-value to 0.1, MT cars may bring about `r round(sum.lm.vif$coefficients[4,1], 2)` MPG improvement compared to AT cars.
 
 ```{r}
-fn$update("source", 'The R markdown source code generated this document is availalbe on <a href="https://github.com/daigotanaka/datascience-capstone/blob/master/multi-regression-practice.Rmd" target="_blank">github repository</a>.')
+fn$update("source", 'The R markdown source code generated this document is availalbe on <a href="https://github.com/daigotanaka/datascience-capstone/blob/master/multi-regression-practice/multi-regression-practice.Rmd" target="_blank">github repository</a>.')
 fn$update("vif", '<a href="http://en.wikipedia.org/wiki/Variance_inflation_factor" target="_blank">Variable Inflation Factor</a>.')
 fn$render(head='<h3 class="nocount">References and notes</h3>')
 ```
