@@ -31,17 +31,16 @@ shows the boxplot of the two groups. The t-test shows the MT cars are significan
 
 <p>As the first preliminary model, I included only transmission type as the independent variable. Running linear regression model yields \(R^{2}\) of 0.36 and p-value of 0:</p>
 
-<p><code></p>
+<pre>
 
-<pre><code class="r">sum.lm.unadjusted$coeff
-</code></pre>
+```r
+sum.lm.unadjusted$coeff
+```
 
-<pre><code>        Estimate Std. Error t value           Pr(&gt;|t|)
-</code></pre>
-
-<p>(Intercept)     17.1        1.1    15.2 0.0000000000000011
+            Estimate Std. Error t value           Pr(>|t|)
+(Intercept)     17.1        1.1    15.2 0.0000000000000011
 am               7.2        1.8     4.1 0.0002850207439351
-</code></p>
+</pre>
 
 <p>So, while p-value is small, we could construct a model with higher \(R^{2}\).</p>
 
@@ -49,15 +48,14 @@ am               7.2        1.8     4.1 0.0002850207439351
 
 <p>Another preliminary model can be constructed by including all 10 independent variables. In this model, Adjusted \(R^{2}\) is 0.81, but this is probably the result of having too many independent variable. None of the p-values is less than 0.05:</p>
 
-<p><code></p>
+<pre>
 
-<pre><code class="r">sum.lm.all.in$coeff
-</code></pre>
+```r
+sum.lm.all.in$coeff
+```
 
-<pre><code>        Estimate Std. Error t value Pr(&gt;|t|)
-</code></pre>
-
-<p>(Intercept)   12.303     18.718    0.66    0.518
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)   12.303     18.718    0.66    0.518
 cyl           -0.111      1.045   -0.11    0.916
 disp           0.013      0.018    0.75    0.463
 hp            -0.021      0.022   -0.99    0.335
@@ -68,7 +66,7 @@ vs             0.318      2.105    0.15    0.881
 am             2.520      2.057    1.23    0.234
 gear           0.655      1.493    0.44    0.665
 carb          -0.199      0.829   -0.24    0.812
-</code></p>
+</pre>
 
 <h4>Model 3</h4>
 
@@ -87,20 +85,19 @@ carb          -0.199      0.829   -0.24    0.812
 
 <p>With this algorithm, the design aspects of rear axle ratio (drat), V/S (vs), transmission type (am), and number of carburetors (carb) remained as regressors. Three of the 4 regressors have p-value smaller than 0.05:</p>
 
-<p><code></p>
+<pre>
 
-<pre><code class="r">sum.lm.vif$coeff
-</code></pre>
+```r
+sum.lm.vif$coeff
+```
 
-<pre><code>        Estimate Std. Error t value Pr(&gt;|t|)
-</code></pre>
-
-<p>(Intercept)     11.3        5.0     2.3  0.03199
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)     11.3        5.0     2.3  0.03199
 drat             2.7        1.6     1.7  0.09635
 vs               3.1        1.4     2.2  0.03884
 am               4.9        1.5     3.3  0.00291
 carb            -1.5        0.4    -3.8  0.00074
-</code></p>
+</pre>
 
 <p>However, the model has adjusted \(R^{2}\) of less than 0.80 (0.77). This could be due to the limitation of only using one statistical algorithm in creating the model.</p>
 
@@ -109,14 +106,19 @@ carb            -1.5        0.4    -3.8  0.00074
 <p>In stead of blindly adopting a statistical algorithm, one should also consult the domain knowledge in deciding the removal and addition of the regressors. Physically speaking, it is not a plausible idea to remove weight from the set of regressors in consideration of MPG. In Model 3, rear axle ratio doesn&#39;t have high p-value. The final model is constructed replacing rear axle ratio with weight. This resulted in a high adjusted \(R^{2}\) (0.81). All the
 p-values are less than 0.05 except for transmission type:</p>
 
-<p><code>
-            Estimate Std. Error t value     Pr(&gt;|t|)
+<pre>
+
+```r
+sum.lm.final$coeff
+```
+
+            Estimate Std. Error t value     Pr(>|t|)
 (Intercept)    29.31       3.53     8.3 0.0000000066
 wt             -2.85       0.94    -3.0 0.0054056214
 vs              2.74       1.26     2.2 0.0385617194
 am              3.07       1.57     2.0 0.0606601842
 carb           -0.88       0.40    -2.2 0.0366771003
-</code></p>
+</pre>
 
 <h3>Diagnostics of residuals</h3>
 

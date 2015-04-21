@@ -157,11 +157,11 @@ pairs(mtcars, panel = panel.smooth)
 
 As the first preliminary model, I included only transmission type as the independent variable. Running linear regression model yields $R^{2}$ of `r round(sum.lm.unadjusted$r.squared, 2)` and p-value of `r round(anova(lm.unadjusted, test="F")[1, 5], 4)`:
 
-<code>
+<pre>
 ```{r, echo=TRUE} 
 sum.lm.unadjusted$coeff
 ```
-</code>
+</pre>
 
 So, while p-value is small, we could construct a model with higher $R^{2}$.
 
@@ -169,11 +169,11 @@ So, while p-value is small, we could construct a model with higher $R^{2}$.
 
 Another preliminary model can be constructed by including all 10 independent variables. In this model, Adjusted $R^{2}$ is `r round(sum.lm.all.in$adj.r.squared, 2)`, but this is probably the result of having too many independent variable. None of the p-values is less than 0.05:
 
-<code>
+<pre>
 ```{r, echo=TRUE}
 sum.lm.all.in$coeff
 ```
-</code>
+</pre>
 
 #### Model 3
 
@@ -192,11 +192,11 @@ fn$label("vif")
 
 With this algorithm, the design aspects of rear axle ratio (drat), V/S (vs), transmission type (am), and number of carburetors (carb) remained as regressors. Three of the 4 regressors have p-value smaller than 0.05:
 
-<code>
+<pre>
 ```{r, echo=TRUE}
 sum.lm.vif$coeff
 ```
-</code>
+</pre>
 
 However, the model has adjusted $R^{2}$ of less than 0.80 (`r round(sum.lm.vif$adj.r.squared, 2)`). This could be due to the limitation of only using one statistical algorithm in creating the model.
 
@@ -205,11 +205,11 @@ However, the model has adjusted $R^{2}$ of less than 0.80 (`r round(sum.lm.vif$a
 In stead of blindly adopting a statistical algorithm, one should also consult the domain knowledge in deciding the removal and addition of the regressors. Physically speaking, it is not a plausible idea to remove weight from the set of regressors in consideration of MPG. In Model 3, rear axle ratio doesn't have high p-value. The final model is constructed replacing rear axle ratio with weight. This resulted in a high adjusted $R^{2}$ (`r round(sum.lm.final$adj.r.squared, 2)`). All the
 p-values are less than 0.05 except for transmission type:
 
-<code>
-```{r}
+<pre>
+```{r, echo=TRUE}
 sum.lm.final$coeff
 ```
-</code>
+</pre>
 
 ### Diagnostics of residuals
 
