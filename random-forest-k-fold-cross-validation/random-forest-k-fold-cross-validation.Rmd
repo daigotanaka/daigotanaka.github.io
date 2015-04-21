@@ -229,7 +229,7 @@ steps by reading through the article, then refer to the source code
 fn$label(
     "source",
     paste(
-        'The R source code produced the analysis and this report is available from <a href="https://github.com/daigotanaka/essays/blame/master/random-forest-k-fold-cross-validation.Rmd">github page</a>',
+        'The R source code produced the analysis and this report is available from <a href="https://github.com/daigotanaka/essays/blame/master/random-forest-k-fold-cross-validation/random-forest-k-fold-cross-validation.Rmd">github page</a>',
         sep="")
 )
 ```
