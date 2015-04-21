@@ -132,7 +132,7 @@ fn$label("source")
 
 The data set this exercise adopted is so-called "Motor Trend Car Road Tests". It is based on 1974 Motor Trend US magazine, and is comprised of fuel consumption expressed as miles per gallon (MPG) of 32 automobiles of the models released between 1973 and 1974. The data also includes 10 aspects of the automobile designs: Number of cylinders, displacement (cu.in.), gross horsepower, rear axle ratio, weight, 1/4 mile time, V/S, transmission, number of forward gears, and number of carburetors.
 
-The MPGs of `r length(mtcars$mpg)` range from `r min(mtcars$mpg)` to `r max(mtcars$mpg)`. The mean is `r round(mean(mtcars$mpg), 2)`, and the standard deviation is `r round(sd(mtcars$mpg), 2)`. The distribution of the MPGs is positively skewed by `r round(describe(mtcars$mpg)$skew, 2)`.
+The MPGs of `r length(mtcars$mpg)` range from `r min(mtcars$mpg)` to `r max(mtcars$mpg)`. The mean is `r round(mean(mtcars$mpg), 2)`, and the standard deviation is `r round(sd(mtcars$mpg), 2)`. The distribution of the MPGs is positively skewed by `r round(psych::describe(mtcars$mpg)$skew, 2)`.
 
 The goal of this exercise is to quantitatively decide whether an automatic transmission (AT) or manual transmission (MT) better for MPG. The first step of the analysis is to compare MPG of the groups AT and MT. Unless a statistically significant difference is found here, the analysis using this data would be inconclusive. The p-value of t-test is `r round(mpg.t.test.by.am$p.value, 4)`, and 95% confidence interval is `r round(mpg.t.test.by.am$conf.int[1], 2)` and `r round(mpg.t.test.by.am$conf.int[2], 2)`. Figure
 `r fig$label("boxplot")`
