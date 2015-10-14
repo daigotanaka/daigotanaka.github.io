@@ -1,6 +1,6 @@
 ## The parenting challenge in post uncanny valley era
 
-I showed the picture of a girl to Yvonne. Her response was "Who's that?" So, I
+I showed a picture of a girl to Yvonne. Her response was "Who's that?" So, I
 said "No body".
 
 <blockquote class="twitter-tweet" lang="en"><p lang="ja" dir="ltr">新しく現在作成中の一人目の3DCG character「Saya」です、今年のクリカンではこちらのキャラクターを中心により実践的なワークフローを紹介させていただく予定です。<a href="http://t.co/0Q2zsW6Z73">http://t.co/0Q2zsW6Z73</a> <a href="http://t.co/xgdYax7pp6">pic.twitter.com/xgdYax7pp6</a></p>&mdash; Yuka (@mojeyuka) <a href="https://twitter.com/mojeyuka/status/653803931613556736">October 13, 2015</a></blockquote>
@@ -12,8 +12,8 @@ with Maya, a 3D computer graphics modeling software. At a glance, I thought
 it was hard to tell that she was a computer graphics person, so I had expected
 Yvonne to ask me "Who's that?" And she did.
 
-Modeling a realistic person like Saya takes hours of work by a skilled computer
-artist. It would still look unnatural she moves. But I have a feeling that the
+Modeling a realistic person like Saya takes hours of work by skilled computer
+artists. It would still look unnatural she moves. But I have a feeling that the
 uncanny valley [^uncanny] is being rapidly overcome on computer screen. And
 there is an unprecedented advancement in Artificial Intelligence and
 man-machine interaction through spoken natural language. All integrated
