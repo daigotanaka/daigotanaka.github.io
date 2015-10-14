@@ -8,7 +8,9 @@ said "No body".
 
 It was a picture of a girl in a white shirt with a stripe tie. Her name is
 Saya. She looked like an ordinal highschool girl, except that she was modeled
-with Maya, a 3D computer graphics modeling software.
+with Maya, a 3D computer graphics modeling software. At a glance, I thought
+it was hard to tell that she was a computer graphics person, so I had expected
+Yvonne to ask me "Who's that?" And she did.
 
 Modeling a realistic person like Saya takes hours of work by a skilled computer
 artist. It would still look unnatural she moves. But I have a feeling that the
@@ -20,13 +22,13 @@ telling machine and human apart.
 
 It will be hard especially for young children to tell such difference. Today,
 we talk about digital native generation. We will probably be talking AI native
-generation one day. As a brand new parent with a lot of imagination, I have
+generation one day. As a brand new parent with a lot of imaginations, I have
 to wonder if my baby one day insists that her best friend is a non-human
 character. How would react to such a strange idea to the people from the old
 world. How should I response wisely as a parent? It may be the way to admit
 that AI character is a character. But what if an innocent looking young
-character appears in front of my daughter and trick her to try some dangerous
-drug with a clever AI logic? What if she decides to marry the character?
+character appears in front of my daughter and manipulates her with a clever AI
+logic to try some dangerous drug ? What if she decides to marry the character?
 
 Perhaps for Japanese people, the concern is not totally of science fiction.
 There was a groom who invited his ex-girlfriend to his wedding. That already
@@ -36,8 +38,9 @@ with a hammer at the wedding [^groom].) In another wedding, a male invitee
 was said to have insisted that he'd bring his 2D girlfriend (again in DS)
 and that she'd participate in the bouquet toss 
 
-As the technology really overcomes the uncanny valley at all levels. Problem
-will soon be not just for anime addicted few.
+As the technology really overcomes the uncanny valley at all levels and the
+virtual characters looking so real, the concern will soon be not just for the
+anime addicted few.
 
 *Report text problem by posting [here](https://github.com/daigotanaka/essays/pull/13/files?diff=unified).*
 
