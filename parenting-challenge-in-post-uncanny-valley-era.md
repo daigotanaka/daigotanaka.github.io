@@ -39,6 +39,8 @@ and that she'd participate in the bouquet toss
 As the technology really overcomes the uncanny valley at all levels. Problem
 will soon be not just for anime addicted few.
 
+*Report text problem by posting [here](https://github.com/daigotanaka/essays/pull/13/files?diff=unified).*
+
 [^uncanny]: [Uncanny valley - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Uncanny_valley)
 [^groom]: [Groom brings virtual girlfriend to wedding, bride smashes game with hammer - The Japan Daily Press](http://japandailypress.com/groom-brings-virtual-girlfriend-to-wedding-bride-smashes-game-with-hammer-2718951/)
 [^invitee]: [DSゲームの彼女にのめり込んでいる友人・・・｜結婚・結婚式の相談広場](http://www.mwed.jp/ques/4190.html)
