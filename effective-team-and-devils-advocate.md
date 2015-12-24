@@ -164,6 +164,8 @@ Sandberg said, "openness sets us apart and helps us move fast". In FiveStars
 case, openness isn't a gesture from management to the employees. It is rather the
 threads of one to one relationships being woven to the whole fabric.
 
+*Report grammatical errors [here](https://github.com/daigotanaka/essays/pull/14/files)*
+
 [^quora]: [Sheryl Sandberg's answer to How does one build a great company culture across several locations in different timezones? - Quora](https://www.quora.com/How-does-one-build-a-great-company-culture-across-several-locations-in-different-timezones/answer/Sheryl-Sandberg)
 [^hoffman]: [CS183C: Technology-enabled Blitzscaling: The Visible Secret of Silicon Valley’s Success | Reid Hoffman | LinkedIn](https://www.linkedin.com/pulse/cs183c-technology-enabled-blitzscaling-visible-secret-reid-hoffman)
 [^sunstein]: [Making Dumb Groups Smarter](https://hbr.org/2014/12/making-dumb-groups-smarter)
