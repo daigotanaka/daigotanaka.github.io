@@ -10,10 +10,11 @@ possibility of the blade breaking when used in combat.*
 
 ### Be open and have hard conversations to achieve great things together
 
-About a week ago, one of the product managers at FiveStars shared Sheryl
-Sandberg's post to Quora. It was her answer to the question "How does one 
-build a great company culture across several locations in different timezones?"
-[^quora]. She started her answer by writing,
+About a week ago, one of the product managers at
+[FiveStars](http://fivestars.com) shared Sheryl Sandberg's post to Quora. It
+was her answer to the question "How does one build a great company culture
+across several locations in different timezones?" [^quora]. She started her
+answer by writing,
 
 > Facebook’s culture reflects our mission to make the world more open and
 > connected. “Be open” has been one of our core values since the beginning.
