@@ -28,7 +28,7 @@ I am also hard on myself just too often. I am embarrassed about myself more
 often than I am proud.  But finishing marathon in 4 hours made me proud of
 myself quite honestly.
 
-### A long journey
+### A turning point
 
 There is one more thing happened to me this year that made me proud: I
 officially started to work as a Data Scientist.
@@ -39,10 +39,11 @@ that looked more like a warehouse in Mountain View. From the beginning, I was
 very excited about the offline consumer behavioral data ingested through
 our services. But we merely had the first version of the software and we didn't
 have much customers and data yet. So, I worked hard with my fellow engineers to
-build the best product. Years later, our services are installed in more than 10
-thousand local restaurants and retails stores in 50 states. We have data.
+build the best product. Years later, our services are installed in more than
+10,000 local restaurants and retails stores in 50 states, serving tens of
+millions of people. We have data.
 
-It took the last 2 years of preparation. Coffee chat with CTO on our data
+It took me full 2 years of preparation. Coffee chat with CTO on our data
 science and analytics vision. Dusting off the statistical knowledge and
 research methods out of the back of my brain since the college and PhD. Doing
 pet projects on Natural Language Processing and prediction problems. Building
@@ -55,9 +56,9 @@ company's hyper growth. Here I am: the 1st Data Scientist at FiveStars.
 ![Connecting dots](http://static.selquote.com/quotes/b7b06e97974bab664ca79eacf16ea8e4.jpg)
 
 The journey to get here made me proud. A journey that finally started to make
-sense in the hindsight. "You can't connect the dots looking forward; you can
+sense in the hindsight. *"You can't connect the dots looking forward; you can
 only connect them looking backwards. So you have to trust that the dots will
-somehow connect in your future.", says Steve Jobs. My **dots**, I recall:
+somehow connect in your future."*, says Steve Jobs. My **dots**, I recall:
 
 - Age 13: Started to **code**. Coded in machine language because the chip was
   too slow for BASIC interpreter. Broke the hardware while **hacking** to extend
@@ -70,7 +71,7 @@ somehow connect in your future.", says Steve Jobs. My **dots**, I recall:
 - Age 29: Life as a **PhD** student at Carnegie Mellon University. I was a
   Biomedical Engineering student, but sneaking into **machine learning** courses.
 - Age 31: Got PhD but gave up on academic career. Switch the field to oil
-  industry. **Collaborating ** with geophysicists on the massive seismic **data**.
+  industry. **Collaborating** with geophysicists on the massive seismic **data**.
 - Age 32: Personal **investment** and trade activities in a **quantitative** approach.
 - Age 36: Joined the **startup** that is nothing to do with computational geometry,
   biomedical engineering or oil. Building **product** and **team**.
@@ -87,12 +88,12 @@ dots at first didn't seem to connect at all towards the goal of finding myself.
 Now I see - Coding. Hacking. Economics. Investment. Mathematics
 (through computational geometry). PhD thesis research. Quant. Data.
 Visualization. Machine learning. Startup. Product. Team. Collboration. - I use
-them all in doing data science. Confucius said,
+all of what I learned in doing data science. Confucius said,
 
-> "At 15, I set my heart on learning; at 30, I firmly took my stand; at 40, I
-> had no delusions; at 50, I knew the mandate of Heaven; at 60, my ear was
-> attuned; at 70, I followed my heart's desire without overstepping the
-> boundaries of right."[^confucius]
+*"At 15, I set my heart on learning; at 30, I firmly took my stand; at 40, I
+had no delusions; at 50, I knew the mandate of Heaven; at 60, my ear was
+attuned; at 70, I followed my heart's desire without overstepping the
+boundaries of right."*[^confucius]
 
 I took a winding road in my 20's and 30's. But I am catching up to the wise man
 at the age 40, at least in my humble way.
