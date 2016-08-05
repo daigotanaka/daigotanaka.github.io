@@ -40,16 +40,16 @@ very excited about the offline consumer behavioral data ingested through
 our services. But we merely had the first version of the software and we didn't
 have much customers and data yet. So, I worked hard with my fellow engineers to
 build the best product. Years later, our services are installed in more than
-10,000 local restaurants and retails stores in 50 states, serving tens of
-millions of people. We have data.
+10,000 local restaurants and retails stores in 50 states, serving over
+10 million people. We have data.
 
-It took me full 2 years of preparation. Coffee chat with CTO on our data
-science and analytics vision. Dusting off the statistical knowledge and
-research methods out of the back of my brain since the college and PhD. Doing
-pet projects on Natural Language Processing and prediction problems. Building
-infrastructures and practices for our product team to run more experiments. I
-finally proposed to create the new role so I can be more helpful to achieve the
-company's hyper growth. Here I am: the 1st Data Scientist at FiveStars.
+It took me full 2 years of preparation. Coffee chat with CTO on our data and
+analytics vision. Dusting off the statistical knowledge and research methods
+from the college and PhD. Doing pet projects on Natural Language Processing and
+prediction problems. Building infrastructures and practices for our product
+team to run more experiments. I finally wrote up a proposal to create the new
+role so I can be more helpful to achieve the company's hyper growth. Here I am:
+the 1st Data Scientist at FiveStars.
 
 ### Yet another case of connecting dots
 
@@ -93,13 +93,13 @@ all of what I learned in doing data science. Confucius said,
 *"At 15, I set my heart on learning; at 30, I firmly took my stand; at 40, I
 had no delusions; at 50, I knew the mandate of Heaven; at 60, my ear was
 attuned; at 70, I followed my heart's desire without overstepping the
-boundaries of right."*[^confucius]
+boundaries of right."* [^confucius]
 
-I took a winding road in my 20's and 30's. But I am catching up to the wise man
+I took a winding road in my 20s and 30s. But I am catching up to the wise man
 at the age 40, at least in my humble way.
 
-I am not quite there yet to find what "the mandate of Heaven" to me. But I have
-10 years to find out. And this time, I am more patient and cheerful, thanks to
-marathon and parenting.
+I am not quite there yet to find what "the mandate of Heaven" is to me. But I
+have 10 years to find out. And this time, I am more patient and cheerful,
+thanks to marathon and parenting.
 
 [^confucius]: [WORDS OF WISDOM: WHO WAS CONFUCIUS? WHAT DID HE SAY? - The Washington Post](https://www.washingtonpost.com/archive/1995/12/13/words-of-wisdom-who-was-confucius-what-did-he-say/2b6a527b-41be-40a4-a732-5589ac87917b/)
