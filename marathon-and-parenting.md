@@ -80,7 +80,7 @@ I hopped around different fields. Social science, biomedical engineering,
 geophysics, and consumer internet startup. I loved being scholarly, but I hated
 the academic life. For a long time, I felt the path I took had zero integrity.
 I always had trouble telling what I am and what my professional theme is.
-I had bursts of interests that lasted a few years each. Those intense bursts of
+I had bursts of interests, each lasted for a few years. Those intense bursts of
 dots at first didn't seem to connect at all towards the goal of finding myself.
 
 ### Catching up with Confucius
@@ -95,7 +95,7 @@ had no delusions; at 50, I knew the mandate of Heaven; at 60, my ear was
 attuned; at 70, I followed my heart's desire without overstepping the
 boundaries of right."* [^confucius]
 
-I took a winding road in my 20s and 30s. But I am catching up to the wise man
+I took a winding road in my 20s and 30s. But I am catching up with the wise man
 at the age 40, at least in my humble way.
 
 I am not quite there yet to find what "the mandate of Heaven" is to me. But I
