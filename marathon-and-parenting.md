@@ -12,11 +12,12 @@ responsibilities of raising Emi with my wife.
 ### Patience and cheerfulness
 
 I am an impatient and restless person. I always want "it" and I want it now.
-I always work hard for it. I often sacrifice sleep and peace of mind. Running
-marathon and taking care of our first baby changed my attitude. I cannot run
-a marathon without building the endurance patiently. Each time I participate
-in a race, it takes me at least 4 months of training; 4 days a week and
-around 30 miles per week.
+I always work hard for it.
+I often [sacrifice sleep and peace of mind](www.daigotanaka.org/journey).
+Running marathon and taking care of our first baby changed my attitude. I
+cannot run a marathon without building the endurance patiently. Each time I
+participate in a race, it takes me at least 4 months of training; 4 days a week
+and around 30 miles per week.
 
 I was exhausted sometimes and the work could be stressful. Yet, I felt I had
 to, and I always wanted to, be cheerful to my precious daughter who has just
