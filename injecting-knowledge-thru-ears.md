@@ -91,5 +91,4 @@ machines.
 [^exercise]: I would not do exercise with this product because I sweat so much that I broke a sport headphone with it.
 [^altman]: [Sam Altman’s Manifest Destiny - The New Yorker](http://www.newyorker.com/magazine/2016/10/10/sam-altmans-manifest-destiny)
 [^imitation]: [The Imitation Game (2014) - IMDb](http://www.imdb.com/title/tt2084970/)
-[^stereo]: Another thing to write here is that you need to buy two pieces so
-they can sync to provide stereo sound. I only bought one as a start in order to listen to web articles and audibles.
+[^stereo]: Another thing to write here is that you need to buy two pieces so they can sync to provide stereo sound. I only bought one as a start in order to listen to web articles and audibles.
