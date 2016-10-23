@@ -85,7 +85,7 @@ would make us communicate like Ghost in the Shell both with humans and
 machines.
 
 [^reboot]: [#32 - Invest in Being Yourself - with Bryce Roberts and Chris Marks - Reboot](https://www.reboot.io/episode/32-invest-in-being-yourself-with-bryce-roberts-and-chris-marks/)
-[^sutherland]: [](http://vlsicad.ucsd.edu/Research/Advice/technologyAndCourage.pdf)
+[^sutherland]: [Technology and Courage by Ivan Sutherland](http://vlsicad.ucsd.edu/Research/Advice/technologyAndCourage.pdf)
 [^insignia]: [Insignia In-Ear Wireless Headphones White NS-CAHBTEP01 - Best Buy](http://www.bestbuy.com/site/insignia-in-ear-wireless-headphones-white/5053000.p?skuId=5053000)
 [^rowkin]: [Rowkin™ Mini - The World's Smallest Wireless Bluetooth Headset](http://www.rowkin.com/)
 [^exercise]: I would not do exercise with this product because I sweat so much that I broke a sport headphone with it.
