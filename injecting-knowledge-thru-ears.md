@@ -3,7 +3,7 @@
 ![at La PanotiQ](https://c2.staticflickr.com/8/7578/30206284406_7586ab595b_c.jpg)
 
 I am writing this while I am having a breakfast at La PanotiQ cafe in Mountain
-View.  I am listening to Episode 32 of Jerry Colonna's Reboot podcast^[reboot].
+View.  I am listening to Episode 32 of Jerry Colonna's Reboot podcast[^reboot].
 He was discussing about personal values with two other guest Venture
 Capitalists Bryce Roberts and Chris Marks. They talked about their VC
 businesses, but the central question in this episode is essential also to
