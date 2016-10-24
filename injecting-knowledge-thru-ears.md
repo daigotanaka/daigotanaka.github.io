@@ -63,7 +63,7 @@ predictable pace. I can finish it in little over a month if I listen 2 chapters
 a day. Not bad for a 587 page book (when printed).
 
 There are limitations of course. When I listen to web articles, I need to
-choose the articles with fewer graphs and numbers. It's suited more for a good
+choose the articles with fewer graphs and numbers. It's suited more for good
 stories on New York Times, New Yorker and so on. Rowkin's battery lasts 1 to 2
 hours per charge. The lipstick-shaped case is a bigger battery that you can
 recharge Rowkin on the go. This is enough for me if I listen during the train
