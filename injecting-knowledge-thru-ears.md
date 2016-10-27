@@ -64,8 +64,8 @@ a day. Not bad for a 587 page book (when printed).
 
 There are limitations of course. When I listen to web articles, I need to
 choose the articles with fewer graphs and numbers. It's suited more for good
-stories on New York Times, New Yorker and so on. Rowkin's battery lasts 1 to 2
-hours per charge. The lipstick-shaped case is a bigger battery that you can
+stories on New York Times, New Yorker and so on. Rowkin's battery lasts about
+3 hours per charge. The lipstick-shaped case is a bigger battery that you can
 recharge Rowkin on the go. This is enough for me if I listen during the train
 ride to work, put it back in the case for charging at work and listen again on
 the way home. The battery probably is not enough for heavy music listeners
