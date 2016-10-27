@@ -1,5 +1,7 @@
 ## Re: Most memorable words by parents
 
+![my parents](https://c1.staticflickr.com/9/8074/8354621608_42f67065e3_c.jpg)
+
 My friend Omar M. Khateeb is an unorthodox and innovative marketing leader with
 a background in science and medicine. He is very interesting and I recommend
 following him on [Twitter](https://twitter.com/okhateeeb) and read his articles
