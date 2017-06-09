@@ -81,5 +81,5 @@ But the luck would not have materialized unless I asked the conductor. I would
 not have surprised that he would have chosen to keep the train on time instead
 of helping me. I actually would not have been surprised if he had yelled me
 for causing trouble. Yes, they yell sometimes. But I pushed my luck and this
-time it worked. A desperate does not always work, but you can never escape from
-an impossible unless you try just one more time.
+time it worked. A desperate attempt does not always work, but you can never
+escape from an impossible unless you try just one more time.
