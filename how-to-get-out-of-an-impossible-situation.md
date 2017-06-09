@@ -1,5 +1,7 @@
 # How to get out of an impossible situation
 
+![phone dropping](https://c1.staticflickr.com/5/4253/34381405683_df6f534311_h.jpg)
+
 Here is the situation.  My train was approaching Redwood City where I get off.
 I was packing up my laptop, then my phone fell off into a very narrow space
 between the seat and the wall. The train stopped and the door opened. I saw
