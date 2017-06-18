@@ -1,4 +1,4 @@
-## How to break the inertia against the data democratization
+## How to overcome organizational inertia towards data democratization
 
 Silicon Valley companies are all about data-driven decision making...right?
 
@@ -10,8 +10,8 @@ I am quite happy that whole company, the executives and individual contributors
 alike, are increasingly utilizing data everyday in order to make decisions at
 FiveStars.
 
-How did we get here? What lessons can we share to other companies yet to break
-the inertia?
+How did we get here? What lessons can we share to other companies yet to
+overcome the organizational inertia?
 
 *What I am going to write may sound too obvious or not even relevant to those
 who already are expert on this topic or working for an elite data company. But
@@ -57,15 +57,15 @@ of data from medical image to reflection seismology!
 
 Since I was a full-stack engineer in the product team, I started to apply
 data science to one of the new products I was heavily involved. The concept
-was very simple: run an A/B test between the legacy and newly architected
-tablet product deployed at our merchant's store front.
+was very simple: run an A/B test between the legacy and new tablet product
+deployed at our merchant's store front.
 
 Despite the analytical simplicity, the execution was very difficult. You could
 think of third-party mobile A/B testing service today. However, because
-our experiment involved the supply-chain of the hardware, I had to run the
-random assignment manually.
+our experiment was beyond the software and it was involved the tablet
+supply-chain, I had to run the random assignment manually.
 
-The data collection was messy too. We did not have a data lake or data
+The data collection process was messy too. We did not have a data lake or data
 warehouse. We just had a replica of the production database. I had to join
 the tables across the other data sources manually.
 
@@ -99,7 +99,7 @@ data democracy.
 
 From the experience I wrote above, I truly feel the pain you might have. And
 I would like to help by designing and executing a data science project that
-helps to demonstrate the value and break the inertia against the data
+helps to demonstrate the value and overcome the inertia towards a data
 democratization in your company.
 
 I always welcome and appreciate if you connect me on LinkedIn and send a message.
