@@ -101,4 +101,6 @@ I would like to help by designing and executing a data science project that
 helps to demonstrate the value and overcome the inertia towards a data
 democratization in your company.
 
-I always welcome and appreciate if you connect me on LinkedIn and send a message.
+I always welcome and appreciate if you
+[connect me on LinkedIn](https://linkedin.com/in/daigotanaka) or
+[send a message](mailto:daigo@anelen.co).
