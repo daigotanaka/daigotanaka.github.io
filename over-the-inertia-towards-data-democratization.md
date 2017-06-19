@@ -1,10 +1,10 @@
 ## How to overcome organizational inertia towards data democratization
 
-Silicon Valley companies are all about data-driven decision making...right?
+**Silicon Valley companies are all about data-driven decision making...right?**
 
-It is shocking to me every time my ex-coworkers and friends at startups show
-their concerns that their bosses are not using the insights from their own data
-to make strategic decisions.
+It is shocking to me every time my friends at startups show their concerns that
+their bosses are not using the insights from their own data to make strategic
+decisions.
 
 I am quite happy that whole company, the executives and individual contributors
 alike, are increasingly utilizing data every day in order to make decisions at
