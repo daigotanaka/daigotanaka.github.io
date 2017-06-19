@@ -18,10 +18,10 @@ who already are experts on this topic or working for an elite data company. But
 If you happened to experience the same pain my friend shared with me, please
 go ahead and read the rest.*
 
-I joined FiveStars over five and half years ago as one of the founding
-engineers. FiveStars is now the leader of customer relationship management for
-small and mid-size retail stores in the USA. The company raised 105 million
-dollars and serving over 10,000 merchants and their 30 million customers.
+I joined FiveStars as one of the founding engineers over five and half years
+ago. FiveStars is now the leader of customer relationship management for small
+and mid-size retail stores in the USA. The company raised 105 million dollars
+and serving over 10,000 merchants and their 30 million customers.
 
 We now have a **Data Lake** where our entire data, varying from Salesforce to
 user events, is **extracted** and poured in. The data in the lake is curated,
@@ -29,8 +29,8 @@ cleaned, and **transformed** before **loaded** to the **Data Warehouse**, where
 the rest of the employees consumes the clean and well-defined data for daily
 analytics with their favorite business intelligence tools.
 
-But its path to today's data democratization is nothing but a story of an elite
-data-centric company.
+**But its path to today's data democratization is nothing but a story of an elite
+data-centric company.**
 
 Why?
 
@@ -41,7 +41,7 @@ And here is the irony: Our initial products were selling so well that we
 didn't have to worry about defining a clear key performance indicator for our
 products.
 
-We kept postponing the data investment.
+**We kept postponing the data investment.**
 
 In the summer of 2014, two and half years after I joined, I decided to become a
 data scientist at FiveStars. After all, the reason I moved from the world from
@@ -68,7 +68,7 @@ The data collection process was messy too. We did not have a data lake or data
 warehouse. We just had a replica of the production database. I had to join
 the tables across the other data sources manually.
 
-The process was ugly but it paid off!
+**The process was ugly but it paid off!**
 
 It helped our leaders to clearly understand the risk and impact of the new
 product. We released it and did so with the greatest confidence we ever had.
@@ -89,18 +89,16 @@ And thanks to a veteran employee who went the extra mile to teach anybody in
 the company how to use SQL, the infrastructure investment is fully utilized
 by all functions at all levels.
 
-This is our version of the birth of a data democracy!
+**This is our version of the birth of a data democracy!**
 
 Without an infrastructure, it is much harder to load the data into one place to
 run analysis to demonstrate the power of data. But without demonstrating the
 value, it is not possible to persuade your CEO of the investment towards
 data democracy.
 
-From the experience I wrote above, I truly feel the pain you might have. And
-I would like to help by designing and executing a data science project that
+*From the experience I wrote above, I truly empathize the pain you might have.
+And I would like to help by designing and executing a data science project that
 helps to demonstrate the value and overcome the inertia towards a data
-democratization in your company.
-
-I always welcome and appreciate if you
+democratization in your company. I always welcome and appreciate if you
 [connect me on LinkedIn](https://linkedin.com/in/daigotanaka) or
-[send a message](mailto:daigo@anelen.co).
+[send a message](mailto:daigo@anelen.co).*
