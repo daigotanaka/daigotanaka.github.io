@@ -1,5 +1,7 @@
 ## How to overcome organizational inertia towards data democratization
 
+![](https://raw.githubusercontent.com/daigotanaka/essays/master/images/iStock-679649206.jpg)
+
 **Silicon Valley companies are all about data-driven decision making...right?**
 
 It is shocking to me every time my friends at startups show their concerns that
