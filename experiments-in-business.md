@@ -1,6 +1,6 @@
 ## Tale of Two Universes: Experiments for Business
 
-![](https://raw.githubusercontent.com/daigotanaka/essays/master/images/iStock-518597818.jpg)
+![](https://raw.githubusercontent.com/daigotanaka/essays/master/images/iStock-679649206.jpg)
 
 If you are in an online business, I bet you heard a term "A/B testing". If you
 are in marketing or in e-commerce, you may even run A/B testing regularly.
