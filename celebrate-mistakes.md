@@ -1,5 +1,7 @@
 ## Celebrating mistakes (間違ったらお祝いだ)
 
+![](https://raw.githubusercontent.com/daigotanaka/essays/master/images/20170402-emi-dad.jpg)
+
 Dinner time conversation with my daughter over a picture book.
 
 Me: "Do chickens have a beak?"
