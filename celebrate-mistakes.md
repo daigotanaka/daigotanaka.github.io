@@ -28,7 +28,7 @@ I don't know what this 2 years old is really feeling when she says sorry, but I 
 
 えみ： パパ、ごめんなさい。
 
-私： 間違えたからって謝ることはないよ。間違うことっていうのは素晴らしいことだ。そこから学べるから。
+私： 間違えたからって謝ることはないよ。間違うっていうのは素晴らしいことだ。そこから学べるから。
 
 えみ： オーケー。
 
