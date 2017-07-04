@@ -1,6 +1,6 @@
 # Post-Postmodern Times: Machine is not stealing your job but liberating you from it.
 
-![](images/modern-times.jpg)
+![](https://github.com/daigotanaka/essays/raw/master/images/modern-times.jpg)
 
 In 1936 film "Modern Times", Charlie Chaplin comically but acutely criticizes
 the pursuit of the industrial efficiency sacrificing the humanity. Chaplin
