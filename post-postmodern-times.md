@@ -89,10 +89,10 @@ algorithms soon. In fact, as a data scientist, you should be the one who is
 always thinking how to automate them so you can focus only on what matters.
 
 In the era of the machine getting increasing smarter, I would like to focus on
-the activities that make human smarter. Machine and human are different also in
+the activities that make human smarter. Machine and human are different in
 that machines need objectives defined by a human. They cannot envision the
 future based on the human value system. Acquiring concrete skills to get things
-done is important, but today's valuable skills may get less obsolete tomorrow
+done is important, but today's valuable skills may get obsolete tomorrow
 and it may be replaced by what machine can do. Polishing our value system
 within, envisioning the future, thinking critically to achieve our objectives -
 I think those are increasingly important things to do every day as human.
