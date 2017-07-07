@@ -15,8 +15,9 @@ professional and complex are executed by artificial intelligence.
 Those works include accounting, legal, and investment management.
 
 People think the recent advancement of machine learning and its applications
-will put many workers out of job. That is probably true. But the
-tasks the artificial intelligence is replacing the human worker is still
+will put many workers out of job.
+[That is probably true](https://www.economist.com/news/special-report/21700761-after-many-false-starts-artificial-intelligence-has-taken-will-it-cause-mass).
+But the tasks the artificial intelligence is replacing the human worker is still
 simple and repetitive ones: The kind exhausting and driving the factory workers
 nuts.
 
