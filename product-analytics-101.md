@@ -3,36 +3,35 @@
 ![leaking bucket](https://github.com/daigotanaka/essays/raw/master/images/leaking-bucket.png)
 
 As a product manager (PM) of web or mobile application, you want to ensure the
-application design offers the user experience (UX) that communicates the service
-offered, is not confusing, and is pleasant to use. A successful application
-helps your company's key performance indicators to go up. But how do you know
-if your new UX design is working?
+application design offers the user experience (UX) that is not confusing and
+pleasant to use. A successful application helps your company's key performance
+indicators to go up. But how do you know if it is working in the field?
 
 In the design phase, you may rely on UX designer's knowledge and skills. During
 the internal test, you can count on your trained eye as a product person and
-your coworkers as a user. But the rest test always takes place after the app
+your coworkers as test users. But the real test always takes place after the app
 is released.
 
-**But let's be honest and ask ourselves. Are we following up to measure the
+**Let's be honest and ask ourselves. Are we following up to measure the
 post-release success objectively?**
 
 If not, I suggest you to seriously think about taking action now.
 
-The key is to identify and record:
+The key is to identify:
 
-- Business goal
-- Product goal
-- User goal
-- Key user events
+- Business goals
+- Product goals
+- User goals
 
-It's not too difficult. Let's take an example of a travel booking app.
+And record key user events It's not too difficult. Let's take an example of a
+travel booking app.
 
 ### Travel booking example
 
-I sometimes use Kayak to book flights. I know one of their appealing feature
-is forecast of ticket price that comes in as an alert. (I am making up the
-details of how it works from here. It is probably different from how it works
-in reality)
+I sometimes use Kayak to book flights. One of their appealing feature
+is to forecast the ticket prices. A notification is sent to the user to suggest
+when to buy. (I am making up the details of how it works from here. It is
+probably different from the reality)
 
 Suppose the alert comes in as a notification on my phone if I had installed
 the app beforehand. By tapping the notification, the app opens and I will
@@ -41,18 +40,19 @@ go through a few screens like this before I buy the ticket:
 ![kayak](https://github.com/daigotanaka/essays/raw/master/images/kayak.png)
 
 Did you notice that on the first screen from the left, it says, "Our advice
-Buy" with an icon to indicate that the price will go up. Say, you are the PM
-and wanted to test such advice will drive the most important **business goal**:
-the sales.
+Buy" with an icon to indicate that the price will go up. Let's pretent that you
+are the PM and wants to test if such advice will drive the most important
+**business goal**: the sales.
 
 In fact, you even ran an
 [A/B test](https://www.linkedin.com/pulse/tale-two-universes-experiments-business-daigo-tanaka-ph-d-)
 to see if "Our advice Buy" increases the number of sale closed, which is your
 **product goal**. The test came in positive, but the increase of sales was not
-as much as I had expected. What is going on?
+as much as you had expected. What is going on?
 
-Assuming there are more users persuaded to buy the ticket now than the actual
-sales, you imagine several scenarios happening among users who intended to buy:
+Assuming there are more users persuaded to buy the ticket by the recommendation
+than the actual sales, you imagine several scenarios happening among users who
+entered the booking process in the app.
 
 The user may have:
 
@@ -64,9 +64,10 @@ The user may have:
 ...
 
 Certainly there is a work for your team to improve the UX if the 4th and 5th
-are the big reasons. But you don't have a good visibility here. There is a gap
-in the observation between what you controlled (Whether the user is presented
-with "Our advice Buy") and the outcome (sales closed or not).
+are the big reasons. But you don't have a good visibility here. The distance is
+great in the observation between what you controlled (Whether the user is
+presented with "Our advice Buy") and the outcome (sales closed or not). There
+are many steps involved in between and you are not observing them.
 
 **Imagine the fear and frustration of driving a car while you have to keep eyes
 closed for 5 seconds for every 5 seconds! That is your situation.**
@@ -82,25 +83,26 @@ In this context, you want to log how the user interacts with the application.
 Where she tapped in the screen, on what page she closed the app, and etc. By
 carefully analyzing how the user interacted with your app, you may be able to
 infer the confusion and frustration that prevented user from achieving the
-**user goal**: Book the flight.
+**user goal**: Booking the flight.
 
 ### Don't record everything!
 
 In the era of cheap storage and faster internet, you may be attracted by the
-idea of recording every interaction. Literally every single interaction. **Don't
-do that.** The reasons why I say it are:
+idea of recording every interaction. Literally every single tap and swipe.
+**Don't do that.** The reasons are:
 
-1. **Unclear definition:** You may end up hundreds of user event whose definition is not documented at
-   all and you will never know if you are using the information correctly.
+1. **Unclear definition:** You may end up hundreds of user event whose
+   definition is not documented at all and you will never know if you are using
+   the information correctly.
 2. **Doesn't answer the question:** If an instrumentation is not driven by a
    product question, it is very likely you need to redo the instrumentation
-   once you have the actual question.  There are numerous ways to select the
-   timing and attached attributes when recording the user event. It is most
-   likely do not match exactly what you want once you come up with a specific
-   question.
-3. **Cost**: If you are using a service like [Mixpanel](https://mixpanel.com) (I
-   suggest many of you to), it will dramatically increase the bill while you
-   are not looking back 99% of the data. It's totally a waste of money.
+   once you have the actual question. The meaning of the event could change
+   dramatically just by moving the logging code before or after a logical block.
+   It is most likely do not match exactly what you want once you come up with
+   a specific question.
+3. **Cost**: If you are using a service like [Mixpanel](https://mixpanel.com),
+   it will dramatically increase the bill while you are not looking back 99% of
+   the data. It's a waste of money.
 
 You need to select the user events wisely.
 
@@ -121,8 +123,8 @@ falling out of the process.
 
 Draw the funnel of your app and identify:
 
-1. The user input that carries the user to the next level of the funnel.
-2. The user input such as cancel button and timeout that will indicate why
+1. The user inputs that carry the user to the next level in the funnel.
+2. The user inputs such as cancel button and timeout that indicate why
    the user is falling out of the funnel.
 
 Those will become the minimal set of user events for you to start understanding
@@ -130,8 +132,9 @@ what is going on.
 
 ### Adding attributes to the events
 
-Of course, you need to tie the one step to the next in the funnel for each
-unique transaction. Your user event comes into the server like this:
+After you have the user event logs from many different users, you will need to
+tie the one step to the next in the funnel for each unique transaction. Your
+user event comes into the server like this:
 
 |**Time**|**Event name**|**Distinct ID**|**Experiment Group**|**...**|
 |:----|:----|:----|:----|:----|
@@ -149,7 +152,8 @@ to see there is a difference in the performance.
 
 ### Get the insight
 
-By analyzing the user event, you may find that:
+In the flight booking app example, you may find the following things by
+analyzing the user event:
 
 1. The number of the users who start typing traveller information is higher
    among the treatment group in which they are presented with "Our advice Buy".
