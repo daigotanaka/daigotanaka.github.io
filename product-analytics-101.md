@@ -2,7 +2,7 @@
 
 ![leaking bucket](https://github.com/daigotanaka/essays/raw/master/images/leaking-bucket.png)
 
-As a product manager (PM) of web or mobile application, you want to ensure the
+As a product manager (PM) of a web or mobile application, you want to ensure the
 application design offers the user experience (UX) that is not confusing and
 pleasant to use. A successful application helps your company's key performance
 indicators to go up. But how do you know if it is working in the field?
@@ -28,7 +28,7 @@ travel booking app.
 
 ### Travel booking example
 
-I sometimes use Kayak to book flights. One of their appealing feature
+I sometimes use Kayak to book flights. One of their appealing features
 is to forecast the ticket prices. A notification is sent to the user to suggest
 when to buy. (I am making up the details of how it works from here. It is
 probably different from the reality)
@@ -118,7 +118,7 @@ At the beginning of the booking process, the number of users interacting with
 the app are much higher than the number of users completing the user goal of
 booking flight (or sales). So the top is wider than the bottom, therefore the
 funnel analogy. Just notice that the funnel is a leaking funnel. For every
-page in the app, latency, and expected user input, there is a risk of user
+page in the app, latency, and expected user input, there is a risk of the user
 falling out of the process.
 
 Draw the funnel of your app and identify:
@@ -155,16 +155,16 @@ to see there is a difference in the performance.
 In the flight booking app example, you may find the following things by
 analyzing the user event:
 
-1. The number of the users who start typing traveller information is higher
+1. The number of the users who start typing traveler information is higher
    among the treatment group in which they are presented with "Our advice Buy".
    The effect seems to be much bigger than what you first observed in the
    final number of sales during the original A/B test.
-2. Most users actually finish typing in the traveller, payment information
-   and click Book. But they are falling off at the confirmation step. They seems
+2. Most users actually finish typing in the traveler, payment information
+   and click Book. But they are falling off at the confirmation step. They seem
    to be forgetting to click "Book" as the final step of the sales.
 
 By fixing the presentation issue of the confirmation page, you fix the issue
-of users forgetting to click "Book" button. In other scenario, there may be
+of users forgetting to click "Book" button. In another scenario, there may be
 a bug in the fallback logic when the network is interrupted during the
 transaction call.
 
@@ -179,4 +179,4 @@ need an expert help, please start feeling good by
 [connecting me on LinkedIn](https://linkedin.com/in/daigotanaka) or
 [sending a message](mailto:daigo@anelen.co).
 
-Daigo Tanaka is founder and principal data scientist at Anelen Co., LLC.
+Daigo Tanaka is the founder and principal data scientist at Anelen Co., LLC.
