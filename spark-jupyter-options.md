@@ -100,3 +100,10 @@ deploy the model to the production.
 Another advantage of this option is that you can run the same docker containers
 on the local computer for a small scale test run. Get the code done and tested
 locally with a small data set could save a lot of money at the end.
+
+Daigo Tanaka, Ph.D. is a founder of Anelen Co., LLC, a boutique consulting firm
+focused on Data Science. He introduced an agile start-up methodology to a pre-Stage
+A startup and helped to raise the total of $105MM. If you need a consultation on
+the topic of a startup operation and data science, please don't hesitate to
+[connect him on LinkedIn](https://linkedin.com/in/daigotanaka) or
+[send a message](mailto:daigo@anelen.co).
