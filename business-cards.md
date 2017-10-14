@@ -15,6 +15,8 @@ creating and tuning machine learning algorithms as the job of data scientists.
 Others may think of big data infrastructure. They are not wrong. Meanwhile, I
 have my angle when I put "Data Science" on the company logo.
 
+![](https://raw.githubusercontent.com/daigotanaka/essays/master/images/anelen-logo.png)
+
 **Anelen's mission is to help startups and innovative businesses make smarter
 decisions using data.**
 
