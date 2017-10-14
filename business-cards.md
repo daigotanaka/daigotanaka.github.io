@@ -1,6 +1,6 @@
 ## A new mission for business cards
 
-![](https://raw.githubusercontent.com/daigotanaka/essays/master/images/rolodex-mad-men.jpg)
+![](https://raw.githubusercontent.com/daigotanaka/essays/master/images/iStock-80488898.jpg)
 
 Who needs a business card when we have LinkedIn?
 
@@ -30,7 +30,9 @@ collected. "Machine is becoming smarter with the data. But how can WE become
 smarter with it?", Anelen asks.
 
 Before the personal computers and smartphones, each business card used to be a
-row in the physically-based database called Rolodex. It held and present the
+row in the physically-based database called
+[Rolodex](http://www.dailymail.co.uk/news/article-3612585/Fancy-owning-Don-Draper-s-shorts-Pete-Campbell-s-globe-drinks-cart-1-500-props-used-iconic-auctioned-fans.html#i-48227534aaeb55bf).
+It held and present the
 essential information such as name, address, and phone number. In the era of
 social network and smartphone, they lost such function. So, I am giving a
 new job to business cards. I am asking them to send the core message to my
