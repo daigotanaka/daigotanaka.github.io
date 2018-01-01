@@ -5,7 +5,7 @@
 今回は独立までの経緯を記した後、「人生でリスクをどうとればよいか」
 について自分なりのアプローチをまとめてみました。
 
-![Polaris Slingshot 借り物ですw](./images/polaris_slingshot.jpg)
+![Polaris Slingshot 借り物ですw](https://github.com/daigotanaka/essays/raw/master/images/polaris_slingshot.jpg)
 
 今年の誕生日は、2歳と9ヶ月になった娘のえみから風邪をもらってしまった。薬で風邪の
 症状をおさえながらも、
