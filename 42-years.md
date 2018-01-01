@@ -91,7 +91,7 @@ Anelenはデータサイエンスのコンサルティングを主な事業と�
 なかなか新しいデータで良い統計がないのだが、例えば2000年から2010年に生み出された新業種からの雇用の割合は、
 サンフランシスコやサンノゼでも地域雇用の2%を越えないのである。
 
-![](./images/new-industry-employment-2000-2010.png)
+![](https://github.com/daigotanaka/essays/raw/master/images/new-industry-employment-2000-2010.png)
 (出典:
 [Industrial Renewal in the 21st Century: Evidence from US Cities](https://www.oxfordmartin.ox.ac.uk/publications/view/1849)
 )
@@ -124,14 +124,14 @@ Anelenはデータサイエンスのコンサルティングを主な事業と�
 同時にテクノロジーの所有者である企業の利益は、賃金の停滞を尻目にみるみると回復し、
 金融危機以前のレベルを遥かに上回った。
 
-![](./images/us-real-corp-profits.png)
+![](https://github.com/daigotanaka/essays/raw/master/images/us-real-corp-profits.png)
 (出典:
 [Why Workers Are Losing the War Against Machines](https://www.theatlantic.com/business/archive/2011/10/why-workers-are-losing-the-war-against-machines/247278/))
 
 大不況がこの傾向を増幅させた部分も否めない。しかし、非農業部門の総生産のうち、
 労働の占める割合は80年代からずっと下降しているのだ。
 
-![](./images/labor-share-output.png)
+![](https://github.com/daigotanaka/essays/raw/master/images/labor-share-output.png)
 (出典:
 [The compensation-productivity gap:
 a visual essay](https://www.bls.gov/opub/mlr/2011/01/art3full.pdf))
