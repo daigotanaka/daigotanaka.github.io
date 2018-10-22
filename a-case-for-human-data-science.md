@@ -90,8 +90,8 @@ at scale powered by computer science and engineering. It expands our
 decision-making capacity with machine learning, but still maintains the
 scientific rigor when the hypothesis is generated, the data is collected, and
 the bias was assessed. The practitioners of data science must have empathy to
-the human value system and ethics and the ability to convey the message that
-effectively urges the people to take action.
+the human value system and ethics. They also master the art of conveying the
+message that effectively urges the people to take action.
 
 **This is a case for human data science**, not a blind machine learning
 delegation. This is why I founded Anelen.
@@ -99,7 +99,7 @@ delegation. This is why I founded Anelen.
 Data scientists used to spend a long time cleansing data and tuning the
 hyper-parameters of machine learning models. Recently, more and more tools and
 platforms are becoming available to automate such tasks.  Once we are free from
-those tasks, has the role of data scientists over? Far from it for Anelen as it
-continues the attempt to answer the core question - *Machines are becoming
-smarter. But how can we make humans smarter?* - while helping people make
-smarter decisions.
+those tasks, has the role of data scientists over? Far from if you ask Anelen
+as it continues the attempt to answer the core question - *Machines are
+becoming smarter. But how can we make humans smarter?* - while helping people
+make smarter decisions.
