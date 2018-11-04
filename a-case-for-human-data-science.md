@@ -31,8 +31,7 @@ after optimizing the hyper-parameters of the machine-learning model for another
 Machine intelligence at current form, whether it is a supervised or
 unsupervised system, only learns from the historical patterns embedded in the
 data. Human intelligence at its finest not only learns from the past but also
-knows how the future may be - *and must be* - different from the historical
-patterns.
+knows how the future may be - *and must be* - different from the past.
 
 ***"Helping innovative businesses make smarter decisions with data science." - Anelen's mission statement***
 
