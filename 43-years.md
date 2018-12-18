@@ -156,3 +156,14 @@ Entrepreneurial data scientist (仮名)というグループを立ち上げ、
 社会の一員として確実に貢献をしてゆく。
 43歳の自分は、周囲の自分より若い世代に、そういう生き方の一例を示してゆきたいだけなのだ。
 
+※ 34歳から続けている誕生日日記も10回目となりました。
+
+- [42歳](http://www.daigotanaka.org/42-years)
+- [41歳](http://www.daigotanaka.org/41-years)
+- [40歳](http://www.daigotanaka.org/40-years)
+- [39歳](http://www.daigotanaka.org/39-years)
+- [38歳](http://www.daigotanaka.org/1521)
+- [37歳](http://www.daigotanaka.org/?p=1325)
+- [36歳](http://www.daigotanaka.org/?p=1098)
+- [35歳](http://www.daigotanaka.org/?p=309)
+- [34歳](http://www.daigotanaka.org/?p=306)
