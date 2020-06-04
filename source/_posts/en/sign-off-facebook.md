@@ -13,7 +13,7 @@ I don't know when or if I will be back.
 I will also keep things updated on the following outlets in case you are interested.
 
 Personal:
-- https://daigotanaka.com (old: http://daigotanaka.org ) or https://medium.com/@DaigoTanaka
+- https://www.daigotanaka.com (old: http://www.daigotanaka.org ) or https://medium.com/@DaigoTanaka
 - Twitter: https://twitter.com/DaigoTanaka
 
 Business:
