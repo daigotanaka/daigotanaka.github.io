@@ -1,5 +1,5 @@
 ---
-title: Signing off Facebook
+title: Signing off from Facebook
 date: 2020-06-04 00:55:06
 tags:
 ---
