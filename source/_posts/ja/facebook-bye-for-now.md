@@ -44,4 +44,6 @@ https://www.nytimes.com/2020/05/30/technology/twitter-trump-dorsey.html
 "Thoughtsbook" https://medium.com/@daigotanaka/thoughtsbook-69ecde6bbb8c
 
 Black lives matter.
+
 ![mlk](/images/mlk-on-silent-friends.jpg)
+「結局、我々は敵の言葉ではなく友人の沈黙を覚えているものなのだ。」 マーティン・ルーサー・キングジュニア牧師
