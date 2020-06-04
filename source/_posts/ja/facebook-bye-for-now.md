@@ -14,8 +14,8 @@ tags:
 日本語では
 - ツイッター https://twitter.com/FollowDaigo
 - note https://note.com/daigotanaka
-- 個人サイト: https://daigotanaka.com
-- 旧サイト: https://daigotanaka.org
+- 個人サイト: https://www.daigotanaka.com
+- 旧サイト: http://daigotanaka.org (注: 旧サイトは http非暗号化通信です)
 
 などがあります。
 
