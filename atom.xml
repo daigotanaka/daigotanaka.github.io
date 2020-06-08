@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Daigo Tanaka</title>
+  
+  <subtitle>Snapshot of my brain</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://daigotanaka.com/"/>
+  <updated>2020-06-08T21:50:41.739Z</updated>
+  <id>http://daigotanaka.com/</id>
+  
+  <author>
+    <name>Daigo Tanaka</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Signing off from Facebook</title>
+    <link href="http://daigotanaka.com/en/sign-off-from-facebook/"/>
+    <id>http://daigotanaka.com/en/sign-off-from-facebook/</id>
+    <published>2020-06-04T07:55:06.000Z</published>
+    <updated>2020-06-08T21:50:41.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/blackout.png&quot; alt=&quot;blackout&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(This is part of what I posted on my
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>フェイスブックの利用を中断します</title>
+    <link href="http://daigotanaka.com/ja/facebook-bye-for-now/"/>
+    <id>http://daigotanaka.com/ja/facebook-bye-for-now/</id>
+    <published>2020-06-04T06:23:46.000Z</published>
+    <updated>2020-06-08T21:50:41.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/blackout.png&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>44歳</title>
+    <link href="http://daigotanaka.com/ja/44-years/"/>
+    <id>http://daigotanaka.com/ja/44-years/</id>
+    <published>2019-12-20T15:37:53.000Z</published>
+    <updated>2020-06-08T21:50:41.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;贅沢な学びの時間&quot;&gt;&lt;a href=&quot;#贅沢な学びの時間&quot; class=&quot;headerlink&quot; title=&quot;贅沢な学びの時間&quot;&gt;&lt;/a&gt;贅沢な学びの時間&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
