@@ -103,3 +103,12 @@ deploy:
 marked:
   gfm: true
   breaks: false
+
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+    hub:
+    content:
+    content_limit: 100
+    content_limit_delim: ' '
