@@ -30,12 +30,10 @@ tags:
 <p>私の人生の節目がいつもそうだったように、これだと静かに決めたのは深夜のことです。そういう時は眠れません。微笑ましいことですが、まずはツィッターで「データサイエンティストになることに決めました。」と宣言をしました。まだ何もしてないくせにです。でも自分の人生について自分で決めた道は、人の目は気にせずに堂々と歩いて行けばいいんだと思います。新しい分野の開拓ならばなおさらです。まだ何の実績もないですが、リンクトインとツィッターのプロフィールをデータサイエンティストと変えました。今は芥子粒のようなデータサイエンティストですが、努力してだんだんと大きくしてゆきます。</p>
 <p>田中乃悟</p>
 
-<h3>過去の誕生日日記</h3>
-<p>
-<ul>
-	<li><a href="https://www.daigotanaka.com/ja/37-years/">37歳</a></li>
-	<li><a href="https://www.daigotanaka.com/ja/36-years/">36歳</a></li>
-	<li><a href="https://www.daigotanaka.com/ja/35-years/">35歳</a></li>
-	<li><a href="https://www.daigotanaka.com/ja/34-years/">34歳</a></li>
-</ul></p>
+### これまでの誕生日日記
 
+- [38歳](https://www.daigotanaka.com/ja/38-years/)
+- [37歳](https://www.daigotanaka.com/ja/37-years/)
+- [36歳](https://www.daigotanaka.com/ja/36-years/)
+- [35歳](https://www.daigotanaka.com/ja/35-years/)
+- [34歳](https://www.daigotanaka.com/ja/34-years/)
