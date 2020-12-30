@@ -192,15 +192,13 @@ ANELEN設立から念頭にあったのは、
 
 これまでの誕生日日記：
 
-(サイト引越作業中。昨年までの日記は.orgドメイン化になります。)
-
-- [43歳](http://www.daigotanaka.org/43-years)
-- [42歳](http://www.daigotanaka.org/42-years)
-- [41歳](http://www.daigotanaka.org/41-years)
-- [40歳](http://www.daigotanaka.org/40-years)
-- [39歳](http://www.daigotanaka.org/39-years)
-- [38歳](http://www.daigotanaka.org/1521)
-- [37歳](http://www.daigotanaka.org/?p=1325)
-- [36歳](http://www.daigotanaka.org/?p=1098)
-- [35歳](http://www.daigotanaka.org/?p=309)
-- [34歳](http://www.daigotanaka.org/?p=306)
+- [43歳](https://www.daigotanaka.com/ja/43-years/)
+- [42歳](https://www.daigotanaka.com/ja/42-years/)
+- [41歳](https://www.daigotanaka.com/ja/41-years/)
+- [40歳](https://www.daigotanaka.com/ja/40-years/)
+- [39歳](https://www.daigotanaka.com/ja/39-years/)
+- [38歳](https://www.daigotanaka.com/ja/38-years/)
+- [37歳](https://www.daigotanaka.com/ja/37-years/)
+- [36歳](https://www.daigotanaka.com/ja/36-years/)
+- [35歳](https://www.daigotanaka.com/ja/35-years/)
+- [34歳](https://www.daigotanaka.com/ja/34-years/)
